@@ -30,14 +30,16 @@ public class ReporteInmueble {
         inmueble = new Inmueble();
         idReporte = id;
         Inmueble buscado = (Inmueble) inmobiliaria.buscarInmuebleReferencia(id);
-        System.out.println(buscado.getReferencia());
-        System.out.println(buscado.getNombre());
-        System.out.println(buscado.getDescripcion());
-        inmueble.setReferencia(buscado.getReferencia());
-        inmueble.setNombre(buscado.getNombre());
-        inmueble.setDescripcion(buscado.getDescripcion());
-        inmueble.setMaterial("Material"+id);
-        inmueble.setColor("Color"+id);
+        if(buscado != null) {
+            System.out.println(buscado.getReferencia());
+            System.out.println(buscado.getNombre());
+            System.out.println(buscado.getDescripcion());
+            inmueble.setReferencia(buscado.getReferencia());
+            inmueble.setNombre(buscado.getNombre());
+            inmueble.setDescripcion(buscado.getDescripcion());
+            inmueble.setMaterial("Material"+id);
+            inmueble.setColor("Color"+id);
+        }
     }
 
     //Class Methods
