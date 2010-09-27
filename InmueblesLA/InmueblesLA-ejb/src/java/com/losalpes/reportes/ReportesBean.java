@@ -5,6 +5,7 @@
 
 package com.losalpes.reportes;
 
+import com.losalpes.mundo.Inmueble;
 import javax.ejb.Stateless;
 
 /**
@@ -23,10 +24,10 @@ public class ReportesBean implements Reportes {
      * @param id - identificador del reporte
      * @return codigo HTML del reporte
      */
-    public String generarReporteInmueble(String id) {
+    public Inmueble generarReporteInmueble(String id) {
 
         ReporteInmueble rep = CacheReporteInmueble.getReporte(id);
 
-        return rep.getReporte();
+        return rep.getInmueble();
     }
 }
