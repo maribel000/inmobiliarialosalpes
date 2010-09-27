@@ -4,7 +4,7 @@
     Author     : andres
 --%>
 
-<%@ page import="com.losalpes.reportes.Reportes, javax.naming.*"%>
+<%@ page import="com.losalpes.reportes.Reportes,com.losalpes.mundo.Inmueble, javax.naming.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,13 +45,37 @@
 
         <%
             String inmueble = request.getParameter("inmueble");
-            String respuesta;
+            Inmueble in;
             if ( inmueble != null && inmueble.length() > 0 ) {
-                respuesta = rep.generarReporteInmueble(inmueble);
+                in = rep.generarReporteInmueble(inmueble);
         %>
         <hr>
+
         <p>
-            <%= respuesta %>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td align="right">Referencia:&nbsp;</td>
+                    <td><%= in.getReferencia() %></td>
+                </tr>
+                <tr>
+                    <td align="right">Nombre:&nbsp;</td>
+                    <td><%= in.getNombre() %></td>
+                </tr>
+                <tr>
+                    <td align="right">Descripci&oacute;n:&nbsp;</td>
+                    <td><%= in.getDescripcion() %></td>
+                </tr>
+                <tr>
+                    <td align="right">Material:&nbsp;</td>
+                    <td><%= in.getMaterial() %></td>
+                </tr>
+                <tr>
+                    <td align="right">Color:&nbsp;</td>
+                    <td><%= in.getColor() %></td>
+                </tr>
+            </tbody>
+        </table>
         <p>
         <%
             }
