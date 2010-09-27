@@ -82,6 +82,13 @@ public class Inmueble implements IInmueble
         
     }
 
+    public Inmueble(String ref, String nom, String desc )
+    {
+        referencia = ref;
+        nombre = nom;
+        descripcion = desc;
+    }
+
     // ---------------------------------------
     // Metodos
     // ---------------------------------------

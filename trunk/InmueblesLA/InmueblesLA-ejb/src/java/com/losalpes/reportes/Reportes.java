@@ -14,6 +14,6 @@ import javax.ejb.Remote;
 @Remote
 public interface Reportes {
 
-    public String generarReporte(String id);
+    public java.lang.String generarReporteInmueble(java.lang.String id);
     
 }
