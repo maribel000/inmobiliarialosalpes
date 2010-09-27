@@ -7,6 +7,7 @@ package com.losalpes.mundo;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -41,6 +42,12 @@ public class Inmobiliaria implements IInmobiliaria
     {
         listaClientes = new Hashtable<String, ICliente>( );
         listaInmuebles = new Hashtable<String, IInmueble>( );
+        for(int i=0;i<11;i++){
+            IInmueble nuevo = new Inmueble("Referencia"+i,"Nombre"+i,"Descripcion"+i);
+            listaInmuebles.put("Referencia"+i, nuevo);
+        }
+        System.out.println(listaInmuebles.size());
+
     }
 
     // --------------------------------------------
@@ -129,6 +136,12 @@ public class Inmobiliaria implements IInmobiliaria
     public Hashtable<String, IInmueble> darInmuebles( )
     {
         return listaInmuebles;
+    }
+
+    public IInmueble buscarInmuebleReferencia(String referencia){
+        IInmueble buscado = null;
+        buscado = listaInmuebles.get(referencia);
+        return buscado;
     }
 
 }

@@ -42,4 +42,6 @@ public interface IInmobiliaria
      * @return listaInmuebles
      */
     public Hashtable<String, IInmueble> darInmuebles( );
+
+    public IInmueble buscarInmuebleReferencia(String referencia);
 }
