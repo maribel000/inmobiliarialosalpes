@@ -37,18 +37,18 @@
         <hr>
 
         <form method="get">
-            N&uacute;mero de cuenta: &nbsp;<input type="text" name="cuenta" value="1" editable="false" size="25">
+            N&uacute;mero de inmueble &nbsp;<input type="text" name="inmueble" value="1" readonly size="3">
             <br>
             <p>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Generar Reporte">
             <input type="reset" value="Reset">
         </form>
 
         <%
-            String cuenta = request.getParameter("cuenta");
+            String inmueble = request.getParameter("inmueble");
             String respuesta;
-            if ( cuenta != null && cuenta.length() > 0 ) {
-                respuesta = rep.generarReporte(cuenta);
+            if ( inmueble != null && inmueble.length() > 0 ) {
+                respuesta = rep.generarReporteInmueble(inmueble);
         %>
         <p>
             <%= respuesta %>
