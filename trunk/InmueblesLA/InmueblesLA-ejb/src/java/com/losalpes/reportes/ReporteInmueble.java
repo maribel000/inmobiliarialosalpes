@@ -5,6 +5,7 @@
 
 package com.losalpes.reportes;
 
+import com.losalpes.mundo.IInmobiliaria;
 import com.losalpes.mundo.Inmueble;
 
 /**
@@ -18,17 +19,20 @@ public class ReporteInmueble {
      */
     private String idReporte;
     private Inmueble inmueble;
+    private IInmobiliaria inmobiliaria;
 
     /**
      * Class Constructor
      * @param id - el identificador del reporte
      */
     public ReporteInmueble(String id) {
+        inmobiliaria=CacheReporteInmueble.inmob;
         idReporte = id;
-        inmueble = new Inmueble();
+        Inmueble buscado = (Inmueble) inmobiliaria.buscarInmuebleReferencia(id);
+        System.out.println(buscado.getReferencia());
         inmueble.setReferencia(id);
-        inmueble.setNombre("Inmueble No. "+id);
-        inmueble.setDescripcion("Esta es la descripcion del inmueble n&uacute;mero "+id);
+        inmueble.setNombre(buscado.getNombre());
+        inmueble.setDescripcion(buscado.getDescripcion());
         inmueble.setMaterial("Material"+id);
         inmueble.setColor("Color"+id);
     }
