@@ -27,10 +27,13 @@ public class ReporteInmueble {
      */
     public ReporteInmueble(String id) {
         inmobiliaria=CacheReporteInmueble.inmob;
+        inmueble = new Inmueble();
         idReporte = id;
         Inmueble buscado = (Inmueble) inmobiliaria.buscarInmuebleReferencia(id);
         System.out.println(buscado.getReferencia());
-        inmueble.setReferencia(id);
+        System.out.println(buscado.getNombre());
+        System.out.println(buscado.getDescripcion());
+        inmueble.setReferencia(buscado.getReferencia());
         inmueble.setNombre(buscado.getNombre());
         inmueble.setDescripcion(buscado.getDescripcion());
         inmueble.setMaterial("Material"+id);
