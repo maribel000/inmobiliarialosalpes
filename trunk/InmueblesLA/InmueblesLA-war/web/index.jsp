@@ -33,11 +33,11 @@
     </head>
     <body>
         <center>
-        <h1>Generacion de Reportes</h1>
+        <h1>Generaci&oacute;n de Reportes</h1>
         </center>
         <BR>
         <form method="get">
-            N&uacute;mero de inmueble (1-10): &nbsp;<input type="text" name="inmueble" value="1"  size="3">
+            N&uacute;mero de inmueble: &nbsp;<input type="text" name="inmueble" value="1"  size="3">
             
             <input type="submit" value="Generar Reporte">
             <BR>
@@ -49,37 +49,41 @@
             if ( inmueble != null && inmueble.length() > 0 ) {
                 in = rep.generarReporteInmueble(inmueble);
         %>
+        <BR>
         <hr>
-
-        <p>
-        <table border="0">
-            <tbody>
-                <tr>
-                    <td align="right">Referencia:&nbsp;</td>
-                    <td><%= in.getReferencia() %></td>
-                </tr>
-                <tr>
-                    <td align="right">Nombre:&nbsp;</td>
-                    <td><%= in.getNombre() %></td>
-                </tr>
-                <tr>
-                    <td align="right">Descripci&oacute;n:&nbsp;</td>
-                    <td><%= in.getDescripcion() %></td>
-                </tr>
-                <tr>
-                    <td align="right">Material:&nbsp;</td>
-                    <td><%= in.getMaterial() %></td>
-                </tr>
-                <tr>
-                    <td align="right">Color:&nbsp;</td>
-                    <td><%= in.getColor() %></td>
-                </tr>
-            </tbody>
-        </table>
-        <p>
+        <center>
+            <h2>
+                Reporte del Inmueble <%= in.getReferencia() %>
+            </h2>
+            <p>
+                <table border="0">
+                    <tbody>
+                        <tr>
+                            <td align="right">Referencia:&nbsp;</td>
+                            <td><%= in.getReferencia() %></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Nombre:&nbsp;</td>
+                            <td><%= in.getNombre() %></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Descripci&oacute;n:&nbsp;</td>
+                            <td><%= in.getDescripcion() %></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Material:&nbsp;</td>
+                            <td><%= in.getMaterial() %></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Color:&nbsp;</td>
+                            <td><%= in.getColor() %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </center>
         <%
             }
         %>
-
     </body>
 </html>
