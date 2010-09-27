@@ -9,7 +9,7 @@ import com.losalpes.mundo.IInmobiliaria;
 import com.losalpes.mundo.Inmueble;
 
 /**
- *
+ * Esta clase es el modelo de la informacion presente en el informe
  * @author andres
  */
 public class ReporteInmueble {
