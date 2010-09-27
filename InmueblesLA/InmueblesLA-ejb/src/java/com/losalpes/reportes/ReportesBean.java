@@ -6,6 +6,7 @@
 package com.losalpes.reportes;
 
 import com.losalpes.mundo.Inmueble;
+import java.util.ArrayList;
 import javax.ejb.Stateless;
 
 /**
@@ -29,5 +30,10 @@ public class ReportesBean implements Reportes {
         ReporteInmueble rep = CacheReporteInmueble.getReporte(id);
 
         return rep.getInmueble();
+    }
+
+    public ArrayList generarReporteParametro(String parametro){
+        ArrayList inmuebles = new ArrayList();
+        return inmuebles;
     }
 }

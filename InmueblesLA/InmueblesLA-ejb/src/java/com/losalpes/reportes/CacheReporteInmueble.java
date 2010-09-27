@@ -5,6 +5,7 @@
 
 package com.losalpes.reportes;
 
+import com.losalpes.mundo.Inmobiliaria;
 import java.util.ArrayList;
 
 /**
@@ -21,14 +22,10 @@ public class CacheReporteInmueble {
      */
     final private static int max=10;
     private static ArrayList<ReporteInmueble> items;
+    public static Inmobiliaria inmob;
 
-    /**
-     * Class Constructor
-     */
-    public CacheReporteInmueble() {
-        if (items == null)
-            items = new ArrayList();
-    }
+
+
 
     //Class Methods
 
@@ -38,6 +35,8 @@ public class CacheReporteInmueble {
      * @return el reporte [ReporteInmueble]
      */
     public static ReporteInmueble getReporte(String id) {
+        if(inmob==null)
+            inmob=new Inmobiliaria();
         if (items == null)
             items = new ArrayList();
 
