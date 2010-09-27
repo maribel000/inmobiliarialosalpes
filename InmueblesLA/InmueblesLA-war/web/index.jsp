@@ -32,16 +32,15 @@
         <title>Inmuebles Los Alpes</title>
     </head>
     <body>
+        <center>
         <h1>Generacion de Reportes</h1>
-
-        <hr>
-
+        </center>
+        <BR>
         <form method="get">
-            N&uacute;mero de inmueble &nbsp;<input type="text" name="inmueble" value="1" readonly size="3">
-            <br>
-            <p>
+            N&uacute;mero de inmueble (1-10): &nbsp;<input type="text" name="inmueble" value="1"  size="3">
+            
             <input type="submit" value="Generar Reporte">
-            <input type="reset" value="Reset">
+            <BR>
         </form>
 
         <%
@@ -50,6 +49,7 @@
             if ( inmueble != null && inmueble.length() > 0 ) {
                 respuesta = rep.generarReporteInmueble(inmueble);
         %>
+        <hr>
         <p>
             <%= respuesta %>
         <p>
