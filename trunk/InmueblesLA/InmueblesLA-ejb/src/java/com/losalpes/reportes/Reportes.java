@@ -5,6 +5,7 @@
 
 package com.losalpes.reportes;
 
+import com.losalpes.mundo.Inmueble;
 import javax.ejb.Remote;
 
 /**
@@ -14,6 +15,6 @@ import javax.ejb.Remote;
 @Remote
 public interface Reportes {
 
-    public java.lang.String generarReporteInmueble(java.lang.String id);
+    public Inmueble generarReporteInmueble(java.lang.String id);
     
 }

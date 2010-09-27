@@ -25,25 +25,15 @@ public class ReporteInmueble {
      */
     public ReporteInmueble(String id) {
         idReporte = id;
-        inmueble = new Inmueble(id, "Inmueble No. "+id, "Esta es la descripcion del inmueble n&uacute;mero "+id);
+        inmueble = new Inmueble();
+        inmueble.setReferencia(id);
+        inmueble.setNombre("Inmueble No. "+id);
+        inmueble.setDescripcion("Esta es la descripcion del inmueble n&uacute;mero "+id);
+        inmueble.setMaterial("Material"+id);
+        inmueble.setColor("Color"+id);
     }
 
     //Class Methods
-
-    /**
-     * Este metodo genera el reporte
-     * @return el codigo HTML del reporte
-     */
-    public String getReporte() {
-        String res = new String();
-
-        res = res + "Este es el reporte:<BR>";
-        res = res + "Inmueble: " + inmueble.getReferencia() + "<BR>";
-        res = res + "Nombre: " + inmueble.getNombre() + "<BR>";
-        res = res + "Descripcion: " + inmueble.getDescripcion() + "<BR>";
-
-        return res;
-    }
 
     public String getIdReporte() {
         return idReporte;
