@@ -7,6 +7,7 @@ package inmuebleslawar;
 
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import javax.faces.FacesException;
+import javax.faces.convert.LongConverter;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -29,6 +30,15 @@ public class catalogo extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
+    }
+    private LongConverter longConverter1 = new LongConverter();
+
+    public LongConverter getLongConverter1() {
+        return longConverter1;
+    }
+
+    public void setLongConverter1(LongConverter lc) {
+        this.longConverter1 = lc;
     }
 
     // </editor-fold>

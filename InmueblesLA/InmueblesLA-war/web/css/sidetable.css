@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+/* Table Rules
+----------------------------------------------- */
+
+.sidetable { 
+	border-collapse:collapse;
+	empty-cells:show;
+	width: 315px;
+	margin: 0;
+	cursor: pointer;	
+}
+
+.sidetable caption {
+	color: #fff;
+	text-transform:uppercase;
+	text-align: left;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	background-color: #FD2800;
+	padding: 0.375em;
+	border-top: solid 1px #999;
+	border-bottom: solid 1px #3a3a3a;
+}
+
+.sidetable th {
+	padding: 6px 0.25em;
+	color: #333333;	
+	font-weight: bold;
+	margin: 0;
+	font-size: 15px;
+	cursor: pointer;
+	margin: 0; 
+	padding: 0.1em 0.1em 0.1em 0.1em;
+	text-align: center;
+}
+
+.sidetable th.value {
+	text-align: right;	
+	margin: 0; 
+	padding: 0.1em 0.1em 0.1em 0.1em;
+}
+
+.sidetable th.infocus { background-color: #E6E6E6; }
+.sidetable th.selected {	color: #EAEAEA; }
+
+/* .sidetable td, .sidetable th { */
+.sidetable td {
+	text-align: center;	
+	margin: 0; 
+	padding: 0.1em 0.1em 0.1em 0.1em;
+}
+
+.sidetable td.value {
+	text-align: right;	
+	margin: 0; 
+	padding: 0.1em 0.1em 0.1em 0.1em;
+}
+
+.sidetable tr {
+	border-bottom: solid 1px #202020;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+.sidetable tr.infocus {
+	background-color:#dfdfdf;
+	cursor: pointer;
+}
+
+.sidetable tr.notinfocus { background-color:#fff; }
+.sidetable tr.selected { color:#fc0; }
+.sidetable tbody { margin-top: 0; }
+
+.even { background-color: #FFFFFF; }
+.odd {  background-color: #F0F5FA;  }
+
+.rowHover {
+	color: #1C1C1C;
+	background-color: #CCFFCC; /*#E3E3E3;*/
+	cursor: pointer;
+}
+
+.rowSelected { 
+/*	color: #7CD300; */
+	font-weight: bold;	
+}
+
