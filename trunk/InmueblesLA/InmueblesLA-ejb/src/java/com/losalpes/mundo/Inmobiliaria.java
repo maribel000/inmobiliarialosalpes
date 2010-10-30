@@ -5,6 +5,8 @@
 
 package com.losalpes.mundo;
 
+import com.losalpes.persistence.IPersistenceServices;
+import com.losalpes.persistence.PersistenceServices;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -32,6 +34,11 @@ public class Inmobiliaria implements IInmobiliaria
      */
     private Hashtable<String, IInmueble> listaInmuebles;
 
+    /**
+     * Persistencia
+     */
+    private IPersistenceServices persistencia;
+
     // --------------------------------------------
     // Constructor
     // --------------------------------------------
@@ -40,6 +47,7 @@ public class Inmobiliaria implements IInmobiliaria
      */
     public Inmobiliaria()
     {
+        persistencia = new PersistenceServices();
         listaClientes = new Hashtable<String, ICliente>( );
         listaInmuebles = new Hashtable<String, IInmueble>( );
         for(int i=0;i<10;i++){
