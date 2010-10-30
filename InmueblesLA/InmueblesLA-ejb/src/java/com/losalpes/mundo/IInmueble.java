@@ -11,6 +11,8 @@ package com.losalpes.mundo;
  */
 public interface IInmueble
 {
+
+    public String darTipoInmueble();
     /**
      * retorna el alto del inmueble
      * @return alto

@@ -74,6 +74,16 @@ public class Cliente implements ICliente
 
     private ArrayList<IInmueble> inmueblesBuscado;
 
+    private String logIn;
+
+    public String getLogIn() {
+        return logIn;
+    }
+
+    public void setLogIn(String logIn) {
+        this.logIn = logIn;
+    }
+
     // -----------------------------------------
     // Constructor
     // -----------------------------------------
@@ -319,6 +329,10 @@ public class Cliente implements ICliente
     public void setTipoDocumento(String tipoDocumento)
     {
         this.tipoDocumento = tipoDocumento;
+    }
+
+    public String darTipoCliente() {
+        return "Cliente";
     }
 
 

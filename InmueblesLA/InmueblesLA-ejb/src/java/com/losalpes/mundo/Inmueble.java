@@ -71,6 +71,11 @@ public class Inmueble implements IInmueble
      */
     private String foto;
 
+    /**
+     * tipo del inmueble
+     */
+    private String tipo;
+
     // ---------------------------------------
     // Constructor
     // ---------------------------------------
@@ -82,11 +87,12 @@ public class Inmueble implements IInmueble
         
     }
 
-    public Inmueble(String ref, String nom, String desc )
+    public Inmueble(String ref, String nom, String desc, String ntipo )
     {
         referencia = ref;
         nombre = nom;
         descripcion = desc;
+        tipo = ntipo;
     }
 
     // ---------------------------------------
@@ -293,5 +299,9 @@ public class Inmueble implements IInmueble
     public void setReferencia(String referencia)
     {
         this.referencia = referencia;
+    }
+
+    public String darTipoInmueble() {
+        return tipo;
     }
 }
