@@ -14,7 +14,7 @@
                 </webuijsf:head>
                 <webuijsf:body id="body1" style="-rave-layout: grid">
                     <webuijsf:form id="form1">
-                        <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 238px; left: 48px; top: 48px; position: absolute; width: 622px">
+                        <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 238px; left: 0px; top: 0px; position: absolute; width: 622px">
                             <webuijsf:tab actionExpression="#{catalogo.tab1_action}" id="tab1" text="Catalogo Público">
                                 <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 621px; -rave-layout: grid">
                                     <h:panelGrid id="gridPanel1" style="height: 192px; left: 0px; top: 0px; position: absolute" width="600">
