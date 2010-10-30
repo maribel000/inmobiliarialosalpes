@@ -43,7 +43,7 @@ public class Inmobiliaria implements IInmobiliaria
         listaClientes = new Hashtable<String, ICliente>( );
         listaInmuebles = new Hashtable<String, IInmueble>( );
         for(int i=0;i<10;i++){
-            IInmueble nuevo = new Inmueble(""+i,"Nombre"+i,"Descripcion"+i);
+            IInmueble nuevo = new Inmueble(""+i,"Nombre"+i,"Descripcion"+i, "casa");
             listaInmuebles.put(""+i, nuevo);
         }
         System.out.println(listaInmuebles.size());
