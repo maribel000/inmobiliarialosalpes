@@ -5,6 +5,8 @@
 
 package com.losalpes.mundo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DANIEL
@@ -68,17 +70,54 @@ public class Cliente implements ICliente
      */
     private String correoElectronico;
 
+    private ArrayList<IInmueble> inmueblesComprado;
+
+    private ArrayList<IInmueble> inmueblesBuscado;
+
     // -----------------------------------------
     // Constructor
     // -----------------------------------------
     public Cliente()
     {
-
+        inmueblesBuscado = new ArrayList<IInmueble>();
+        inmueblesComprado = new ArrayList<IInmueble>();
     }
 
     // -----------------------------------------
     // Metodos
     // -----------------------------------------
+
+    /**
+     * agrega un inmueble a la lista de comprados
+     */
+    public void agregarInmuebleComprado( IInmueble nuevo )
+    {
+        inmueblesComprado.add(nuevo);
+    }
+
+    /**
+     * agrega un nuevo inmueble que le interesa al usuario
+     */
+    public void agregarInmuebleInteresado( IInmueble nuevo )
+    {
+        inmueblesBuscado.add(nuevo);
+    }
+
+    /**
+     * compra un inmueble
+     */
+    public void comprarInmueble( IInmueble nuevo )
+    {
+        if (inmueblesBuscado.contains(nuevo))
+        {
+            inmueblesBuscado.remove(nuevo);
+            inmueblesComprado.add(nuevo);
+        }
+        else
+        {
+            inmueblesComprado.add(nuevo);
+        }
+    }
 
     // -----------------------------------------
     // Metodos Getters and Setters
@@ -281,4 +320,7 @@ public class Cliente implements ICliente
     {
         this.tipoDocumento = tipoDocumento;
     }
+
+
+
 }
