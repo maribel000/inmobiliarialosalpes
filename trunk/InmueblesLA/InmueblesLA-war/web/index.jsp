@@ -10,22 +10,6 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 
 
-<%!    private Reportes rep = null;
-
-    public void jspInit() {
-        try {
-            InitialContext ic = new InitialContext();
-            rep = (Reportes) ic.lookup(Reportes.class.getName());
-        } catch (Exception ex) {
-            System.out.println("Couldn't create reportes bean." + ex.getMessage());
-        }
-    }
-
-    public void jspDestroy() {
-        rep = null;
-    }
-%>
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,7 +17,6 @@
         <link href="css/homepage.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-
         <!--******************** START TITLE BAR ********************-->
         <div id="header">
             <div id="logo">
@@ -43,10 +26,10 @@
             <div id="menu">
                 <ul>
                     <!--******************** START BUTTONS ********************-->
-                    <li class="active"><a href="home.php?p=menu">cat&aacute;logo</a></li>
-                    <li><a href="home.php?p=profile">promociones</a></li>
-                    <li><a href="home.php?p=history">ayuda</a></li>
-                    <li><a href="home.php?p=help2">login</a></li>
+                    <li class="active"><a href="faces/catalogo.jsp">cat&aacute;logo</a></li>
+                    <!--<li><a href="home.php?p=profile">promociones</a></li>-->
+                    <li><a href="ayuda.jsp">ayuda</a></li>
+                    <li><a href="login.jsp">login</a></li>
                     <!--******************** END BUTTONS ********************-->
                 </ul>
             </div>
@@ -62,7 +45,11 @@
                 <!--******************** START CENTER ********************-->
                 <div class="left-sector">
                     <div class="post">
-                        
+                        <h1 class="title">Bienvenido,</h1>
+                        <br>
+                        <div class="entry">
+                            En InAlpes, podrás buscar todo nuesto catálogo web.
+                        </div>
                     </div>
                 </div>
 

@@ -5,11 +5,8 @@
 
 package inmuebleslawar;
 
-import com.sun.data.provider.impl.ListDataProvider;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import javax.faces.FacesException;
-import javax.faces.convert.LongConverter;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -18,12 +15,12 @@ import javax.faces.convert.LongConverter;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @version catalogo.java
- * @version Created on Oct 30, 2010, 9:26:08 AM
+ * @version index2.java
+ * @version Created on Oct 30, 2010, 6:29:10 PM
  * @author andres
  */
 
-public class catalogo extends AbstractPageBean {
+public class index2 extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -39,7 +36,7 @@ public class catalogo extends AbstractPageBean {
     /**
      * <p>Construct a new Page bean instance.</p>
      */
-    public catalogo() {
+    public index2() {
     }
 
     /**
@@ -68,7 +65,7 @@ public class catalogo extends AbstractPageBean {
         try {
             _init();
         } catch (Exception e) {
-            log("catalogo Initialization Failure", e);
+            log("index2 Initialization Failure", e);
             throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
         }
         
@@ -138,18 +135,6 @@ public class catalogo extends AbstractPageBean {
      */
     protected SessionBean1 getSessionBean1() {
         return (SessionBean1) getBean("SessionBean1");
-    }
-
-    public String tab1_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
-        return null;
-    }
-
-    public String tab2_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
-        return null;
     }
     
 }
