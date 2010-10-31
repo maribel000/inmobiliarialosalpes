@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : catalogo_frag
+    Created on : Oct 30, 2010, 10:22:33 AM
+    Author     : andres
+-->
+<div style="-rave-layout: grid; width: 400px; height: 200px" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
+    <f:subview id="catalogo_frag">
+        <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 190px; left: 0px; top: 0px; position: absolute; width: 382px">
+            <webuijsf:tab actionExpression="#{catalogo_frag.tab1_action}" id="tab1" text="Apartamentos">
+                <webuijsf:panelLayout id="layoutPanel1" style="height: 153px; position: relative; width: 381px; -rave-layout: grid">
+                    <h:panelGrid id="gridPanel1" style="height: 144px; left: 0px; top: 0px; position: absolute" width="384">
+                        <h:dataTable headerClass="list-header" id="dataTable1" rowClasses="list-row-even,list-row-odd" value="#{catalogo_frag.dataTable1Model}" var="currentRow">
+                            <h:column id="column1">
+                                <h:outputText id="outputText1" value="#{currentRow['COLUMN1']}"/>
+                                <f:facet name="header">
+                                    <h:outputText id="outputText2" value="idApto"/>
+                                </f:facet>
+                            </h:column>
+                            <h:column id="column2">
+                                <h:outputText id="outputText3" value="#{currentRow['COLUMN2']}"/>
+                                <f:facet name="header">
+                                    <h:outputText id="outputText4" value="dirección"/>
+                                </f:facet>
+                            </h:column>
+                            <h:column id="column3">
+                                <h:outputText id="outputText5" value="#{currentRow['COLUMN3']}"/>
+                                <f:facet name="header">
+                                    <h:outputText id="outputText6" value="precio"/>
+                                </f:facet>
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGrid>
+                </webuijsf:panelLayout>
+            </webuijsf:tab>
+            <webuijsf:tab id="tab2" text="Casas">
+                <webuijsf:panelLayout id="layoutPanel2" style="width: 100%; height: 128px;">
+                    <h:panelGrid id="gridPanel2" style="height: 144px; left: 0px; top: 0px; position: absolute" width="384"/>
+                </webuijsf:panelLayout>
+            </webuijsf:tab>
+        </webuijsf:tabSet>
+    </f:subview>
+</div>

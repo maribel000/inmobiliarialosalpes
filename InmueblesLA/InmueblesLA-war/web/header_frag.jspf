@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : header
+    Created on : Oct 30, 2010, 5:00:27 PM
+    Author     : andres
+-->
+
+<div style="-rave-layout: grid; width: 600px; height: 200px" xmlns:f="http://java.sun.com/jsf/core" xmlns:jsp="http://java.sun.com/JSP/Page">
+    <f:subview id="header_frag">
+        <div style="height: 24px; left: 48px; top: 24px; position: absolute; width: 400px">
+            <link href="css/homepage.css" rel="stylesheet" type="text/css"/>
+            <!--******************** START TITLE BAR ********************-->
+            <div id="header">
+                <div id="logo">
+                    <h1>
+                        <a href="../index.jsp">InAlpes</a>
+                    </h1>
+                    <h2>
+                        <a href="">tu inmobiliaria</a>
+                    </h2>
+                </div>
+                <div id="menu">
+                    <ul>
+                        <!--******************** START BUTTONS ********************-->
+                        <li class="active">
+                            <a href="faces/catalogo.jsp">catálogo</a>
+                        </li>
+                        <!--<li><a href="home.php?p=profile">promociones</a></li>-->
+                        <li>
+                            <a href="ayuda.jsp">ayuda</a>
+                        </li>
+                        <li>
+                            <a href="login.jsp">login</a>
+                        </li>
+                        <!--******************** END BUTTONS ********************-->
+                    </ul>
+                </div>
+            </div>
+            <!--******************** END TITLE BAR ********************-->
+        </div>
+    </f:subview>
+</div>

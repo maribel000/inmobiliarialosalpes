@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
     Document   : catalogo
     Created on : Oct 30, 2010, 9:26:08 AM
     Author     : andres
@@ -17,15 +17,7 @@
                         <jsp:directive.include file="header_frag.jspf"/>
                     </div>
                     <webuijsf:form id="form1">
-                        <webuijsf:tabSet id="tabSet1" selected="tab2" style="height: 214px; left: 132px; top: 192px; position: absolute; width: 600px; alignment: center">
-                            <webuijsf:tab actionExpression="#{catalogo.tab1_action}" id="tab1" text="Apartamentos">
-                                <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 621px; -rave-layout: grid">d
-                                </webuijsf:panelLayout>
-                            </webuijsf:tab>
-                            <webuijsf:tab actionExpression="#{catalogo.tab2_action}" id="tab2" text="Casas">
-                                <webuijsf:panelLayout id="layoutPanel2" style="height: 201px; position: relative; width: 621px; -rave-layout: grid"/>
-                            </webuijsf:tab>
-                        </webuijsf:tabSet>
+                        <webuijsf:staticText id="staticText1" style="position: absolute; left: 120px; top: 216px" text="Bienvenido"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>
