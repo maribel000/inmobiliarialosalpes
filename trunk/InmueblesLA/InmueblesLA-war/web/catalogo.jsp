@@ -17,9 +17,9 @@
                         <jsp:directive.include file="header_frag.jspf"/>
                     </div>
                     <webuijsf:form id="form1">
-                        <webuijsf:tabSet id="tabSet1" selected="tab2" style="height: 214px; left: 132px; top: 192px; position: absolute; width: 600px; alignment: center">
+                        <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 214px; left: 192px; top: 192px; position: absolute; width: 540px; alignment: center">
                             <webuijsf:tab actionExpression="#{catalogo.tab1_action}" id="tab1" text="Apartamentos">
-                                <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 621px; -rave-layout: grid">d
+                                <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 525px; -rave-layout: grid">d
                                 </webuijsf:panelLayout>
                             </webuijsf:tab>
                             <webuijsf:tab actionExpression="#{catalogo.tab2_action}" id="tab2" text="Casas">

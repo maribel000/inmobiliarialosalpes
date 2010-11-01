@@ -28,7 +28,7 @@
                     <!--******************** START BUTTONS ********************-->
                     <li class="active"><a href="faces/catalogo.jsp">cat&aacute;logo</a></li>
                     <!--<li><a href="home.php?p=profile">promociones</a></li>-->
-                    <li><a href="ayuda.jsp">ayuda</a></li>
+                    <!--<li><a href="ayuda.jsp">ayuda</a></li>-->
                     <li><a href="login.jsp">login</a></li>
                     <!--******************** END BUTTONS ********************-->
                 </ul>
