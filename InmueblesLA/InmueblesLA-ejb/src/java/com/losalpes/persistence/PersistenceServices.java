@@ -14,6 +14,7 @@ package com.losalpes.persistence;
 import com.losalpes.mundo.Administrador;
 import com.losalpes.mundo.Cliente;
 import com.losalpes.mundo.ICliente;
+import com.losalpes.mundo.IInmueble;
 import com.losalpes.mundo.Vendedor;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -149,5 +150,44 @@ public class PersistenceServices implements IPersistenceServices {
             em.createQuery("INSERT INTO Clientes(logIn) " +
                     "VALUES("+logIn+")");
         }
+    }
+
+    /**
+     * Tabla Inmuebles
+     * referencia
+     * nombre
+     * descripcion
+     * interiorExterior
+     * alto
+     * ancho
+     * profundidad
+     * color
+     * peso
+     * foto
+     * tipo
+     */
+
+    /**
+     * Guarda un nuevo IInmueble en la BD
+     * @param nuevo
+     */
+    public void persistirNuevoInmueble( IInmueble nuevo )
+    {
+         String referencia = nuevo.getReferencia();
+         String nombre = nuevo.getNombre();
+         String descripcion = nuevo.getDescripcion();
+         boolean interiorExterior = nuevo.isInteriorExterior();
+         int alto = nuevo.getAlto();
+         int ancho = nuevo.getAncho();
+         int profundidad = nuevo.getProfundidad();
+         String color = nuevo.getColor();
+         int peso = nuevo.getPeso();
+         String tipo = nuevo.getTipoInmueble();
+
+         em.createQuery("INSERT INTO Inmueble(referencia, nombre, descripcion, interiorExterior, alto, ancho, " +
+                    "profundidad, color, peso, tipo) " +
+                    "VALUES("+referencia+","+nombre+","+descripcion+","+interiorExterior+","+alto+","+ancho+","
+                    +profundidad+","+color+","+peso+","+tipo+")");
+
     }
 }

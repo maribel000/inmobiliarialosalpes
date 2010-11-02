@@ -301,7 +301,7 @@ public class Inmueble implements IInmueble
         this.referencia = referencia;
     }
 
-    public String darTipoInmueble() {
+    public String getTipoInmueble() {
         return tipo;
     }
 }
