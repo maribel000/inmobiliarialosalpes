@@ -9,7 +9,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author Orlando
+ * @author Daniel Palacios
  */
 @Local
 public interface IPersistenceServices {

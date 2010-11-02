@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  * Implementación de los servicios de persistencia que se le prestan al sistema.
- * @author Camilo Alvarez
+ * @author Daniel Palacios
  */
 @Stateless
 public class PersistenceServices implements IPersistenceServices {
