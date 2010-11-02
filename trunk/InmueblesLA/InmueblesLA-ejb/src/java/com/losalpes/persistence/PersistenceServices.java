@@ -77,7 +77,7 @@ public class PersistenceServices implements IPersistenceServices {
      * Tabla Clientes
      * nombre
      * apellido
-     * documentoIdentificacion
+     * cedula
      * tipoDocumento
      * telefonoResidencia
      * telefonoCelular
@@ -85,10 +85,11 @@ public class PersistenceServices implements IPersistenceServices {
      * direccion
      * pais
      * profesion
-     * correoElectronico
+     * email
      * TABLA PARA INMUEBLES_COMPRADOS ó INMUEBLES_INSCRITOS ó INMUEBLES_REGISTRADOS
      * TABLA PARA INMUEBLES_BUSCADOS
      * logIn
+     * password
      */
 
     /**
@@ -103,7 +104,7 @@ public class PersistenceServices implements IPersistenceServices {
             Cliente c = (Cliente) cliente;
             String nombre = c.getNombre();
             String apellido = c.getApellido();
-            String documentoIdentificacion = c.getDocumentoIdentificacion();
+            String cedula = c.getDocumentoIdentificacion();
             String tipoDocumento = c.getTipoDocumento();
             String telefonoResidencia = c.getTelefonoResidencia();
             String telefonoCelular = c.getTelefonoCelular();
@@ -111,13 +112,13 @@ public class PersistenceServices implements IPersistenceServices {
             String direccion = c.getDireccion();
             String pais = c.getPais();
             String profesion = c.getProfesion();
-            String correoElectronico = c.getCorreoElectronico();
+            String email = c.getCorreoElectronico();
             String logIn = c.getLogIn();
 
-            em.createQuery("INSERT INTO Clientes(nombre, apellido, documentoIdentificacion, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
-                    "ciudadResidencia, direccion, pais, profesion, correoElectronico, logIn) " +
-                    "VALUES("+nombre+","+apellido+","+documentoIdentificacion+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
-                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+correoElectronico+","+logIn+")");
+            em.createQuery("INSERT INTO Usuarios(nombre, apellido, cedula, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
+                    "ciudadResidencia, direccion, pais, profesion, email, logIn) " +
+                    "VALUES("+nombre+","+apellido+","+cedula+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
+                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+email+","+logIn+")");
         }
 
         else if (tipo.equals("Vendedor"))
@@ -125,7 +126,7 @@ public class PersistenceServices implements IPersistenceServices {
             Vendedor c = (Vendedor) cliente;
             String nombre = c.getNombre();
             String apellido = c.getApellido();
-            String documentoIdentificacion = c.getDocumentoIdentificacion();
+            String cedula = c.getDocumentoIdentificacion();
             String tipoDocumento = c.getTipoDocumento();
             String telefonoResidencia = c.getTelefonoResidencia();
             String telefonoCelular = c.getTelefonoCelular();
@@ -133,13 +134,13 @@ public class PersistenceServices implements IPersistenceServices {
             String direccion = c.getDireccion();
             String pais = c.getPais();
             String profesion = c.getProfesion();
-            String correoElectronico = c.getCorreoElectronico();
+            String email = c.getCorreoElectronico();
             String logIn = c.getLogIn();
 
-            em.createQuery("INSERT INTO Clientes(nombre, apellido, documentoIdentificacion, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
-                    "ciudadResidencia, direccion, pais, profesion, correoElectronico, logIn) " +
-                    "VALUES("+nombre+","+apellido+","+documentoIdentificacion+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
-                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+correoElectronico+","+logIn+")");
+            em.createQuery("INSERT INTO Clientes(nombre, apellido, cedula, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
+                    "ciudadResidencia, direccion, pais, profesion, email, logIn) " +
+                    "VALUES("+nombre+","+apellido+","+cedula+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
+                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+email+","+logIn+")");
         }
 
         else if (tipo.equals("Administrador"))
@@ -154,7 +155,7 @@ public class PersistenceServices implements IPersistenceServices {
 
     /**
      * Tabla Inmuebles
-     * referencia
+     * id
      * nombre
      * descripcion
      * interiorExterior
@@ -172,7 +173,7 @@ public class PersistenceServices implements IPersistenceServices {
      */
     public void persistirNuevoInmueble( IInmueble nuevo )
     {
-         String referencia = nuevo.getReferencia();
+         String referencia = nuevo.getidInmueble();
          String nombre = nuevo.getNombre();
          String descripcion = nuevo.getDescripcion();
          boolean interiorExterior = nuevo.isInteriorExterior();
@@ -183,7 +184,7 @@ public class PersistenceServices implements IPersistenceServices {
          int peso = nuevo.getPeso();
          String tipo = nuevo.getTipoInmueble();
 
-         em.createQuery("INSERT INTO Inmueble(referencia, nombre, descripcion, interiorExterior, alto, ancho, " +
+         em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, interiorExterior, alto, ancho, " +
                     "profundidad, color, peso, tipo) " +
                     "VALUES("+referencia+","+nombre+","+descripcion+","+interiorExterior+","+alto+","+ancho+","
                     +profundidad+","+color+","+peso+","+tipo+")");
