@@ -134,14 +134,14 @@ public interface IInmueble
     public void setProfundidad(int profundidad);
 
     /**
-     * retorna la referencia del inmueble
-     * @return referencia
+     * retorna la idInmueble del inmueble
+     * @return idInmueble
      */
-    public String getReferencia();
+    public String getidInmueble();
 
     /**
-     * modifica la referencia del inmueble
-     * @param referencia
+     * modifica la idInmueble del inmueble
+     * @param idInmueble
      */
-    public void setReferencia(String referencia);
+    public void setidInmueble(String idInmueble);
 }
