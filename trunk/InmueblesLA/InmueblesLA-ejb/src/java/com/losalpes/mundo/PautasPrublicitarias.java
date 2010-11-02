@@ -11,6 +11,8 @@ package com.losalpes.mundo;
  */
 public class PautasPrublicitarias {
 
+    private String idPauta;
+
     private String nombreEmpresa;
 
     private String descripcion;
@@ -25,6 +27,14 @@ public class PautasPrublicitarias {
     }
 
 
+
+    public String getIdPauta() {
+        return idPauta;
+    }
+
+    public void setIdPauta(String idPauta) {
+        this.idPauta = idPauta;
+    }
 
     public String getDescripcion() {
         return descripcion;
