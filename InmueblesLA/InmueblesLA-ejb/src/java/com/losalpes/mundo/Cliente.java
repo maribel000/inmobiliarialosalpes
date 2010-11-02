@@ -76,14 +76,6 @@ public class Cliente implements ICliente
 
     private String logIn;
 
-    public String getLogIn() {
-        return logIn;
-    }
-
-    public void setLogIn(String logIn) {
-        this.logIn = logIn;
-    }
-
     // -----------------------------------------
     // Constructor
     // -----------------------------------------
@@ -329,6 +321,14 @@ public class Cliente implements ICliente
     public void setTipoDocumento(String tipoDocumento)
     {
         this.tipoDocumento = tipoDocumento;
+    }
+
+    public String getLogIn() {
+        return logIn;
+    }
+
+    public void setLogIn(String logIn) {
+        this.logIn = logIn;
     }
 
     public String darTipoCliente() {
