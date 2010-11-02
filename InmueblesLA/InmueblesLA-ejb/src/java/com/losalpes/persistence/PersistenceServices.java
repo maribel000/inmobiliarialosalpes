@@ -163,7 +163,6 @@ public class PersistenceServices implements IPersistenceServices {
      * profundidad
      * color
      * peso
-     * foto
      * tipo
      */
 
