@@ -11,6 +11,10 @@
  */
 package com.losalpes.persistence;
 
+import com.losalpes.mundo.Administrador;
+import com.losalpes.mundo.Cliente;
+import com.losalpes.mundo.ICliente;
+import com.losalpes.mundo.Vendedor;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -41,6 +45,7 @@ public class PersistenceServices implements IPersistenceServices {
      * Constructor de la clase.
      */
     public PersistenceServices() {
+
     }
 
     public void create(Object obj) {
@@ -61,5 +66,88 @@ public class PersistenceServices implements IPersistenceServices {
 
     public Object findById(Class c, Object id) {
         return em.find(c, id);
+    }
+
+    // --------------------------
+    // Persistencia BD
+    // --------------------------
+
+    /**
+     * Tabla Clientes
+     * nombre
+     * apellido
+     * documentoIdentificacion
+     * tipoDocumento
+     * telefonoResidencia
+     * telefonoCelular
+     * ciudadResidencia
+     * direccion
+     * pais
+     * profesion
+     * correoElectronico
+     * TABLA PARA INMUEBLES_COMPRADOS ó INMUEBLES_INSCRITOS ó INMUEBLES_REGISTRADOS
+     * TABLA PARA INMUEBLES_BUSCADOS
+     * logIn
+     */
+
+    /**
+     * Guarda un nuevo ICliente en la BD
+     * @param cliente
+     */
+    public void persistirNuevoCliente(ICliente cliente)
+    {
+        String tipo = cliente.darTipoCliente();
+        if (tipo.equals("Cliente"))
+        {
+            Cliente c = (Cliente) cliente;
+            String nombre = c.getNombre();
+            String apellido = c.getApellido();
+            String documentoIdentificacion = c.getDocumentoIdentificacion();
+            String tipoDocumento = c.getTipoDocumento();
+            String telefonoResidencia = c.getTelefonoResidencia();
+            String telefonoCelular = c.getTelefonoCelular();
+            String ciudadResidencia = c.getCiudadResidencia();
+            String direccion = c.getDireccion();
+            String pais = c.getPais();
+            String profesion = c.getProfesion();
+            String correoElectronico = c.getCorreoElectronico();
+            String logIn = c.getLogIn();
+
+            em.createQuery("INSERT INTO Clientes(nombre, apellido, documentoIdentificacion, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
+                    "ciudadResidencia, direccion, pais, profesion, correoElectronico, logIn) " +
+                    "VALUES("+nombre+","+apellido+","+documentoIdentificacion+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
+                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+correoElectronico+","+logIn+")");
+        }
+
+        else if (tipo.equals("Vendedor"))
+        {
+            Vendedor c = (Vendedor) cliente;
+            String nombre = c.getNombre();
+            String apellido = c.getApellido();
+            String documentoIdentificacion = c.getDocumentoIdentificacion();
+            String tipoDocumento = c.getTipoDocumento();
+            String telefonoResidencia = c.getTelefonoResidencia();
+            String telefonoCelular = c.getTelefonoCelular();
+            String ciudadResidencia = c.getCiudadResidencia();
+            String direccion = c.getDireccion();
+            String pais = c.getPais();
+            String profesion = c.getProfesion();
+            String correoElectronico = c.getCorreoElectronico();
+            String logIn = c.getLogIn();
+
+            em.createQuery("INSERT INTO Clientes(nombre, apellido, documentoIdentificacion, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
+                    "ciudadResidencia, direccion, pais, profesion, correoElectronico, logIn) " +
+                    "VALUES("+nombre+","+apellido+","+documentoIdentificacion+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
+                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+correoElectronico+","+logIn+")");
+        }
+
+        else if (tipo.equals("Administrador"))
+        {
+            Administrador c = (Administrador) cliente;
+            String logIn = c.getLogIn();
+
+            em.createQuery("INSERT INTO Clientes(logIn) " +
+                    "VALUES("+logIn+")");
+        }
     }
 }

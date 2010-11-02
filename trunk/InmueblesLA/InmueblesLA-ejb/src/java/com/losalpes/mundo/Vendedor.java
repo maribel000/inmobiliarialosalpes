@@ -74,14 +74,6 @@ public class Vendedor implements ICliente
 
     private String logIn;
 
-    public String getLogIn() {
-        return logIn;
-    }
-
-    public void setLogIn(String logIn) {
-        this.logIn = logIn;
-    }
-
     // -----------------------------------------
     // Constructor
     // -----------------------------------------
@@ -305,10 +297,15 @@ public class Vendedor implements ICliente
         this.tipoDocumento = tipoDocumento;
     }
 
-    public String darTipoCliente() {
-        return "Cliente";
+    public String getLogIn() {
+        return logIn;
     }
 
+    public void setLogIn(String logIn) {
+        this.logIn = logIn;
+    }
 
-
+    public String darTipoCliente() {
+        return "Vendedor";
+    }
 }

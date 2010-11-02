@@ -95,6 +95,11 @@ public class Administrador implements ICliente
         return listaClientes;
     }
 
+
+    public String getLogIn() {
+        return LogIn;
+    }
+    
     /**
      * retorna el tipo de cliente
      * @return
