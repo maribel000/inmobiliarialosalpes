@@ -17,7 +17,7 @@ public class Inmueble implements IInmueble
     /**
      * Contiene el ID del inmueble
      */
-    private String referencia;
+    private String idInmueble;
     
     /**
      * Contiene el nombre del inmueble
@@ -89,7 +89,7 @@ public class Inmueble implements IInmueble
 
     public Inmueble(String ref, String nom, String desc, String ntipo )
     {
-        referencia = ref;
+        idInmueble = ref;
         nombre = nom;
         descripcion = desc;
         tipo = ntipo;
@@ -284,21 +284,21 @@ public class Inmueble implements IInmueble
     }
 
     /**
-     * retorna la referencia del inmueble
-     * @return referencia
+     * retorna la idInmueble del inmueble
+     * @return idInmueble
      */
-    public String getReferencia()
+    public String getidInmueble()
     {
-        return referencia;
+        return idInmueble;
     }
 
     /**
-     * modifica la referencia del inmueble
-     * @param referencia
+     * modifica la idInmueble del inmueble
+     * @param idInmueble
      */
-    public void setReferencia(String referencia)
+    public void setidInmueble(String idInmueble)
     {
-        this.referencia = referencia;
+        this.idInmueble = idInmueble;
     }
 
     public String getTipoInmueble() {

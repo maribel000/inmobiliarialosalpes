@@ -95,7 +95,7 @@ public class Inmobiliaria implements IInmobiliaria
             while ( in != null )
             {
                 escritor.println( "Inmueble " + i );
-                escritor.println( "- Referencia: " + in.getReferencia( ));
+                escritor.println( "- Referencia: " + in.getidInmueble());
                 escritor.println( "- Nombre: " + in.getNombre( ) );
                 escritor.println( "- Descripcion: " + in.getDescripcion( ) );
                 if ( in.isInteriorExterior( ))
