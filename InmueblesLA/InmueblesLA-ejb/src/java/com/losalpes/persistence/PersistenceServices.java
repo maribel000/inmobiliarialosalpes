@@ -16,6 +16,7 @@ import com.losalpes.mundo.Cliente;
 import com.losalpes.mundo.ICliente;
 import com.losalpes.mundo.IInmueble;
 import com.losalpes.mundo.Vendedor;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -188,6 +189,21 @@ public class PersistenceServices implements IPersistenceServices {
                     "profundidad, color, peso, tipo) " +
                     "VALUES("+referencia+","+nombre+","+descripcion+","+interiorExterior+","+alto+","+ancho+","
                     +profundidad+","+color+","+peso+","+tipo+")");
+
+    }
+
+    /**
+     * busca los inmuebles que tengan por id el del cliente c
+     * @param c
+     */
+    public List consultarInmueblesAsociadosCliente ( ICliente c )
+    {
+        int id = c.getIdcliente();
+        List temp = new ArrayList( );
+        String query = "Select * From Inmueble Where idcliente = '"+id+"'";
+
+        temp = em.createQuery(query).getResultList();
+        return temp;
 
     }
 }

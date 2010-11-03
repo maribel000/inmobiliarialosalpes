@@ -15,7 +15,13 @@ public class Vendedor implements ICliente
 {
     // -----------------------------------------
     // Atributos
-    // -----------------------------------------
+    // -----------------------------------------   \
+
+    /**
+     * ID del cliente
+     */
+    private int idcliente;
+    
     /**
      * Contiene el nombre del cliente
      */
@@ -303,6 +309,14 @@ public class Vendedor implements ICliente
 
     public void setLogIn(String logIn) {
         this.logIn = logIn;
+    }
+
+    public int getIdcliente() {
+        return idcliente;
+    }
+
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
     }
 
     public String darTipoCliente() {

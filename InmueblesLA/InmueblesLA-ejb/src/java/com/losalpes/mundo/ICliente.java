@@ -12,4 +12,10 @@ package com.losalpes.mundo;
 public interface ICliente
 {
     public String darTipoCliente();
+
+    public int getIdcliente();
+
+    public void setIdcliente(int idcliente);
 }
+
+
