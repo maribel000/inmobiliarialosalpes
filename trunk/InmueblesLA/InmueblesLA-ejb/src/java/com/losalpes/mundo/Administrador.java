@@ -17,6 +17,11 @@ public class Administrador implements ICliente
     // Atributos
     // -----------------------------------------
     /**
+     * ID del cliente
+     */
+    private int idcliente;
+
+    /**
      * Contiene el nombre del cliente
      */
     private String LogIn;
@@ -98,6 +103,14 @@ public class Administrador implements ICliente
 
     public String getLogIn() {
         return LogIn;
+    }
+
+    public int getIdcliente() {
+        return idcliente;
+    }
+
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
     }
     
     /**

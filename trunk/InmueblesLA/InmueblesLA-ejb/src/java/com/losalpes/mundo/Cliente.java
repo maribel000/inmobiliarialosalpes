@@ -17,6 +17,11 @@ public class Cliente implements ICliente
     // Atributos
     // -----------------------------------------
     /**
+     * ID del cliente
+     */
+    private int idcliente;
+
+    /**
      * Contiene el nombre del cliente
      */
     private String nombre;
@@ -329,6 +334,14 @@ public class Cliente implements ICliente
 
     public void setLogIn(String logIn) {
         this.logIn = logIn;
+    }
+
+    public int getIdcliente() {
+        return idcliente;
+    }
+
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
     }
 
     public String darTipoCliente() {
