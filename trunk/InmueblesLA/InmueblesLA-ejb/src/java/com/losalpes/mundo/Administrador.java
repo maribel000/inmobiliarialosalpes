@@ -26,6 +26,8 @@ public class Administrador implements ICliente
      */
     private String LogIn;
 
+    private String password;
+
     /**
      * lista de todos los clientes registrados
      */
@@ -100,6 +102,10 @@ public class Administrador implements ICliente
         return listaClientes;
     }
 
+    public void setLogIn( String log)
+    {
+        this.LogIn = log;
+    }
 
     public String getLogIn() {
         return LogIn;
@@ -112,7 +118,22 @@ public class Administrador implements ICliente
     public void setIdcliente(int idcliente) {
         this.idcliente = idcliente;
     }
-    
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setListaClientes(ArrayList<ICliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public void setListaInmuebles(ArrayList<IInmueble> listaInmuebles) {
+        this.listaInmuebles = listaInmuebles;
+    }
     /**
      * retorna el tipo de cliente
      * @return

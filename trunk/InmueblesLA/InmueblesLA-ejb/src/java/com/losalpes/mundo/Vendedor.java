@@ -35,7 +35,7 @@ public class Vendedor implements ICliente
     /**
      * Contiene el documento de identificacion del cliente
      */
-    private String documentoIdentificacion;
+    private String cedula;
 
     /**
      * Contiene el tipo de documento del cliente
@@ -79,7 +79,8 @@ public class Vendedor implements ICliente
     private ArrayList<IInmueble> inmueblesInscritos;
 
     private String logIn;
-
+    
+    private String password;
     // -----------------------------------------
     // Constructor
     // -----------------------------------------
@@ -181,18 +182,18 @@ public class Vendedor implements ICliente
      * modifica el documentoIdentificacion
      * @return documentoIdentificacion
      */
-    public String getDocumentoIdentificacion()
+    public String getCedula()
     {
-        return documentoIdentificacion;
+        return cedula;
     }
 
     /**
      * modifica el documentoIdentificacion actual
      * @param documentoIdentificacion
      */
-    public void setDocumentoIdentificacion(String documentoIdentificacion)
+    public void setCedula(String documentoIdentificacion)
     {
-        this.documentoIdentificacion = documentoIdentificacion;
+        this.cedula = documentoIdentificacion;
     }
 
     /**
@@ -317,6 +318,14 @@ public class Vendedor implements ICliente
 
     public void setIdcliente(int idcliente) {
         this.idcliente = idcliente;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String darTipoCliente() {

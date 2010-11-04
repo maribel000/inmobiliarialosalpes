@@ -81,6 +81,8 @@ public class Cliente implements ICliente
 
     private String logIn;
 
+    private String password;
+
     // -----------------------------------------
     // Constructor
     // -----------------------------------------
@@ -344,10 +346,15 @@ public class Cliente implements ICliente
         this.idcliente = idcliente;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String darTipoCliente() {
         return "Cliente";
     }
-
-
-
 }
