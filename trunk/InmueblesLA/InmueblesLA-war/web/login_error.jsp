@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : Sep 26, 2010, 1:08:45 PM
     Author     : andres
@@ -45,10 +45,10 @@
                 <!--******************** START CENTER ********************-->
                 <div class="left-sector">
                     <div class="post">
-                        <h1 class="title">Bienvenido,</h1>
+                        <h1 class="title">Lo sentimos,</h1>
                         <br>
                         <div class="entry">
-                            En InAlpes, podrás buscar todo nuesto catálogo web.
+                            Ha habido un error en la autenticación. <br> <br> Por favor, intenta de nuevo en la página de login <a href="login.jsp">aquí</a>
                         </div>
                     </div>
                 </div>
