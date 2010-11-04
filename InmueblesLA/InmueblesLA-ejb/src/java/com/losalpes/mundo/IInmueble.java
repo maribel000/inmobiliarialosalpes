@@ -137,11 +137,11 @@ public interface IInmueble
      * retorna la idInmueble del inmueble
      * @return idInmueble
      */
-    public String getidInmueble();
+    public int getidInmueble();
 
     /**
      * modifica la idInmueble del inmueble
      * @param idInmueble
      */
-    public void setidInmueble(String idInmueble);
+    public void setidInmueble(int idInmueble);
 }
