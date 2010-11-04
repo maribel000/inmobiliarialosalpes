@@ -20,12 +20,9 @@ public class CacheReporteInmueble {
     /**
      * Class Attributes
      */
-    final private static int max=10;
+    final private static int max=100;
     private static ArrayList<ReporteInmueble> items;
     public static Inmobiliaria inmob;
-
-
-
 
     //Class Methods
 
