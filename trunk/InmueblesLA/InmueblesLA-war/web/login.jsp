@@ -48,16 +48,16 @@
                         <h1 class="title">Usuarios con Cuenta</h1>
                         <br>
                         <div class="entry">
-                            <form name="login_form" action="login.jsp" method="POST">
+                            <form name="login_form" action="j_security_check" method="POST">
                                 <table border="0">
                                     <tbody>
                                         <tr>
                                             <td align="right">Login</td>
-                                            <td><input type="text" name="login" value="" /></td>
+                                            <td><input type="text" name="j_username" value="" /></td>
                                         </tr>
                                         <tr>
                                             <td align="right">Password</td>
-                                            <td><input type="password" name="password" value="" /></td>
+                                            <td><input type="password" name="j_password" value="" /></td>
                                         </tr>
                                         <tr>
                                             <td align="right">&nbsp;</td>

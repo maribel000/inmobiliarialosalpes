@@ -48,7 +48,7 @@
         </init-param>
         <init-param>
             <param-name>errorPort</param-name>
-            <param-value>24444</param-value>
+            <param-value>4444</param-value>
         </init-param>
     </servlet>
     <servlet>
@@ -97,4 +97,107 @@
             <is-xml>true</is-xml>
         </jsp-property-group>
         </jsp-config>
+    <security-constraint>
+        <display-name>Restriccion de transporte a la informacion de acceso</display-name>
+        <web-resource-collection>
+            <web-resource-name>Pagina de acceso</web-resource-name>
+            <description>pagino de acceso a la aplicacion</description>
+            <url-pattern>/login.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>DELETE</http-method>
+        </web-resource-collection>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+        </security-constraint>
+    <security-constraint>
+        <display-name>Restriccion de transporte completo de la informacion</display-name>
+        <web-resource-collection>
+            <web-resource-name>Validacion de ventas</web-resource-name>
+            <description>El proceso de venta debe hacerse completo</description>
+            <url-pattern>/validar_venta.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>Generacion de reportes</web-resource-name>
+            <description>La generacion de reportes debe hacerse de forma completa</description>
+            <url-pattern>/reporte.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>INTEGRAL</transport-guarantee>
+        </user-data-constraint>
+        </security-constraint>
+    <security-constraint>
+        <display-name>Restriccion para el acceso a la pagina de administrador</display-name>
+        <web-resource-collection>
+            <web-resource-name>Restriccion pagina administrador</web-resource-name>
+            <description>Solo el administrador puede acceder a la pagina </description>
+            <url-pattern>/home3.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>administrador</role-name>
+            </auth-constraint>
+        </security-constraint>
+    <security-constraint>
+        <display-name>Restriccion para el acceso a la pagina de vendedor</display-name>
+        <web-resource-collection>
+            <web-resource-name>Restriccion pagina vendedor</web-resource-name>
+            <description>Solo el vendedor puede realizar el proceso de venta</description>
+            <url-pattern>/validar_venta.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>vendedor</role-name>
+            </auth-constraint>
+        </security-constraint>
+    <security-constraint>
+        <display-name>Restriccion para ingresar a la pagina de inicio de vendedor</display-name>
+        <web-resource-collection>
+            <web-resource-name>Restriccion pagina inicio vendedor</web-resource-name>
+            <description>Solo los administradores y vendedores pueden ingresar a la pagina de inicio de vendedor</description>
+            <url-pattern>/home2.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>vendedor</role-name>
+            <role-name>administrador</role-name>
+            </auth-constraint>
+        </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>Idaplosalpes</realm-name>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login_error.jsp</form-error-page>
+            </form-login-config>
+        </login-config>
+    <security-role>
+        <description>Administrador del sistema</description>
+        <role-name>administrador</role-name>
+    </security-role>
+    <security-role>
+        <description>Representante area comercial que administra inmuebles y clientes</description>
+        <role-name>vendedor</role-name>
+    </security-role>
+    <security-role>
+        <description>Usuario que vende, compra y busca inmuebles</description>
+        <role-name>cliente</role-name>
+    </security-role>
     </web-app>
