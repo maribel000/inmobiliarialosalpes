@@ -176,18 +176,11 @@ public class Inmobiliaria implements IInmobiliaria
             Vendedor v = new Vendedor();
             v.setApellido(apellido);
             v.setCedula(cc);
-            v.setCiudadResidencia(ciuRes);
             v.setCorreoElectronico(email);
-            v.setDireccion(dir);
             v.setIdcliente(idcliente);
             v.setLogIn(logIn);
             v.setNombre(nombre);
-            v.setPais(pais);
             v.setPassword(password);
-            v.setProfesion(profesion);
-            v.setTelefonoCelular(telefonoCelular);
-            v.setTelefonoResidencia(telefonoResidencia);
-            v.setTipoDocumento(tipoDocumento);
 
             nuevo = v;
         }
@@ -197,18 +190,11 @@ public class Inmobiliaria implements IInmobiliaria
             Cliente c = new Cliente();
             c.setApellido(apellido);
             c.setDocumentoIdentificacion(cc);
-            c.setCiudadResidencia(ciuRes);
             c.setCorreoElectronico(email);
-            c.setDireccion(dir);
             c.setIdcliente(idcliente);
             c.setLogIn(logIn);
             c.setNombre(nombre);
-            c.setPais(pais);
             c.setPassword(password);
-            c.setProfesion(profesion);
-            c.setTelefonoCelular(telefonoCelular);
-            c.setTelefonoResidencia(telefonoResidencia);
-            c.setTipoDocumento(tipoDocumento);
 
             nuevo = c;
         }
