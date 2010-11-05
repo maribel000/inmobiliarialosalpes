@@ -53,12 +53,21 @@
                     </div>
                 </div>
 
-            <!--******************** END CONTENT ********************-->
+                <div class="right-sector">
+                    <div class="post">
+                        <h2 class="title">Pautas Publicitarias</h2>
+                        <div class="entry">
+                            Aquí podrás ver pautas de afiliados
+                        </div>
+                    </div>
+                </div>
+
+                <!--******************** END CONTENT ********************-->
             </div>
 
             <div style="clear: both;">&nbsp;</div>
 
-        <!--******************** END PAGE ********************-->
+            <!--******************** END PAGE ********************-->
         </div>
 
 
