@@ -173,12 +173,12 @@ public class PersistenceServices implements IPersistenceServices {
          int peso = nuevo.getPeso();
          String tipo = nuevo.getTipoInmueble();
 
-         /*
+         
          em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, interiorExterior, alto, ancho, " +
                     "profundidad, color, peso, tipo) " +
                     "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+interiorExterior+"','"+alto+"','"+ancho+"','"
                     +profundidad+"','"+color+"','"+peso+"','"+tipo+"')");
-                    */
+                    
     }
 
     /**
