@@ -162,22 +162,14 @@ public class PersistenceServices implements IPersistenceServices {
     public void persistirNuevoInmueble( IInmueble nuevo )
     {
          int referencia = nuevo.getidInmueble();
-         //String referencia = nuevo.getidInmueble();
          String nombre = nuevo.getNombre();
          String descripcion = nuevo.getDescripcion();
-         boolean interiorExterior = nuevo.isInteriorExterior();
-         int alto = nuevo.getAlto();
-         int ancho = nuevo.getAncho();
-         int profundidad = nuevo.getProfundidad();
-         String color = nuevo.getColor();
-         int peso = nuevo.getPeso();
-         String tipo = nuevo.getTipoInmueble();
+         String tipo = nuevo.getTipo();
 
          
          em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, interiorExterior, alto, ancho, " +
                     "profundidad, color, peso, tipo) " +
-                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+interiorExterior+"','"+alto+"','"+ancho+"','"
-                    +profundidad+"','"+color+"','"+peso+"','"+tipo+"')");
+                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"')");
                     
     }
 
@@ -195,6 +187,11 @@ public class PersistenceServices implements IPersistenceServices {
         return temp;
     }
 
+    /**
+     * retorna todos los clientes
+     * @param idCliente
+     * @return
+     */
     public List darCliente ( int idCliente )
     {
         List temp = new ArrayList( );
@@ -204,4 +201,9 @@ public class PersistenceServices implements IPersistenceServices {
 
         return temp;
     }
+    
+    /**
+     * Retorna los inmuebles dado 
+     */
+
 }

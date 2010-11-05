@@ -98,22 +98,6 @@ public class Inmobiliaria implements IInmobiliaria
                 escritor.println( "- Referencia: " + in.getidInmueble());
                 escritor.println( "- Nombre: " + in.getNombre( ) );
                 escritor.println( "- Descripcion: " + in.getDescripcion( ) );
-                if ( in.isInteriorExterior( ))
-                {
-                    escritor.println( "- Interior/Exterior: Interior" );
-                }
-                else
-                {
-                    escritor.println( "- Interior/Exterior: Exterior" );
-                }
-                escritor.println( "- Material: " + in.getMaterial( ) );
-                escritor.println( "- Medidas: " );
-                escritor.println( "           + Ancho: " + in.getAncho( ) );
-                escritor.println( "           + Alto: " + in.getAlto( ) );
-                escritor.println( "           + Profundo: " + in.getProfundidad() );
-                escritor.println( "- Peso: " + in.getPeso( ) );
-                escritor.println( "- Color: " + in.getColor( ) );
-                escritor.println( "- Foto: " + in.getFoto( ) );
                 escritor.println( "--------------------------------------------");
                 i++;
             }

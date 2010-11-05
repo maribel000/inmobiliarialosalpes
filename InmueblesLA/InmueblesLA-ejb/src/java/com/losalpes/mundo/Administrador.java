@@ -61,7 +61,7 @@ public class Administrador implements ICliente
         for (int i = 0; i < listaInmuebles.size(); i++)
         {
             IInmueble temp = listaInmuebles.get(i);
-            if (temp.getTipoInmueble().equals(tipo))
+            if (temp.getTipo().equals(tipo))
             {
                 lista.add(temp);
             }

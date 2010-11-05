@@ -37,8 +37,6 @@ public class ReporteInmueble {
             inmueble.setidInmueble(buscado.getidInmueble());
             inmueble.setNombre(buscado.getNombre());
             inmueble.setDescripcion(buscado.getDescripcion());
-            inmueble.setMaterial("Material"+id);
-            inmueble.setColor("Color"+id);
         }
     }
 
