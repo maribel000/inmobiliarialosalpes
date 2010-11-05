@@ -45,24 +45,10 @@
                 <!--******************** START CENTER ********************-->
                 <div class="left-sector">
                     <div class="post">
-                        <h1 class="title">Bienvenido Cliente,</h1>
+                        <h1 class="title">Gracias Vendedor,</h1>
                         <br>
                         <div class="entry">
-                            Ya puedes realizar tus transacciones.
-                        </div>
-                    </div>
-                    <div class="post">
-                        <h1 class="title">Buscar Inmuebles,</h1>
-                        <br>
-                        <div class="entry">
-                            Busca en catálogo el inmueble para ti!
-                        </div>
-                    </div>
-                    <div class="post">
-                        <h1 class="title">Registar Inmuebles,</h1>
-                        <br>
-                        <div class="entry">
-                            ¿Quieres publicar tu inmueble con nosotros? Aquí podrás hacerlo
+                            Tu venta ha sido validada.
                         </div>
                     </div>
                 </div>

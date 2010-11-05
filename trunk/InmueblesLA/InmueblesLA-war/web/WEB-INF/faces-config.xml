@@ -54,4 +54,9 @@
             <to-view-id>/login_error.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>catalogo2</managed-bean-name>
+        <managed-bean-class>inmuebleslawar.catalogo2</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>
