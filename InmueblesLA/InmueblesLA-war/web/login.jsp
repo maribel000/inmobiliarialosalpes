@@ -96,6 +96,10 @@
                                             <td align="right">Password(2):</td>
                                             <td><input type="password" name="password2" value="" /></td>
                                         </tr>
+                                        <tr>
+                                            <td align="right">&nbsp;</td>
+                                            <td><input type="submit" value="crear" name="submit" /></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </form>
@@ -103,12 +107,21 @@
                     </div>
                 </div>
 
-            <!--******************** END CONTENT ********************-->
+                <div class="right-sector">
+                    <div class="post">
+                        <h2 class="title">Pautas Publicitarias</h2>
+                        <div class="entry">
+                            Aquí podrás ver pautas de afiliados
+                        </div>
+                    </div>
+                </div>
+
+                <!--******************** END CONTENT ********************-->
             </div>
 
             <div style="clear: both;">&nbsp;</div>
-
-        <!--******************** END PAGE ********************-->
+            
+            <!--******************** END PAGE ********************-->
         </div>
 
 

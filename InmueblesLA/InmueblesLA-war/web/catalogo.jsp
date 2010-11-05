@@ -16,17 +16,32 @@
                     <div style="height: 48px; left: 132px; top: -24px; position: absolute; width: 214px">
                         <jsp:directive.include file="header_frag.jspf"/>
                     </div>
+                    <!--******************** START PAGE ********************-->
+                    <div id="page">
+                        <!--******************** START CONTENT ********************-->
+                        <div id="content">
                     <webuijsf:form id="form1">
-                        <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 214px; left: 192px; top: 192px; position: absolute; width: 540px; alignment: center">
+                        <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 214px; left: 192px; top: 192px; position: absolute; width: 650px; alignment: center">
                             <webuijsf:tab actionExpression="#{catalogo.tab1_action}" id="tab1" text="Apartamentos">
-                                <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 525px; -rave-layout: grid">
-                                </webuijsf:panelLayout>
+                                <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 650px; -rave-layout: grid"/>
                             </webuijsf:tab>
                             <webuijsf:tab actionExpression="#{catalogo.tab2_action}" id="tab2" text="Casas">
-                                <webuijsf:panelLayout id="layoutPanel2" style="height: 201px; position: relative; width: 621px; -rave-layout: grid"/>
+                                <webuijsf:panelLayout id="layoutPanel2" style="height: 201px; position: relative; width: 650px; -rave-layout: grid"/>
                             </webuijsf:tab>
                         </webuijsf:tabSet>
                     </webuijsf:form>
+
+
+                            <div class="right-sector" style="margin-top: 150px">
+                                <div class="post">
+                                    <h2 class="title">Pautas Publicitarias</h2>
+                                    <div class="entry">
+                                        Aquí podrás ver pautas de afiliados
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </webuijsf:body>
             </webuijsf:html>
         </webuijsf:page>
