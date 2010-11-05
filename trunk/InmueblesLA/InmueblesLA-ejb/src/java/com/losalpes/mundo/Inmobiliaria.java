@@ -165,6 +165,7 @@ public class Inmobiliaria implements IInmobiliaria
         nueva.setIdtransaccion(idtransaccion);
 
         listaTransacciones.put(idtransaccion+"", nueva);
+        persistencia.persistirNuevaTransaccion(nueva);
     }
 
     /**
@@ -187,7 +188,7 @@ public class Inmobiliaria implements IInmobiliaria
      * @param telefonoResidencia
      * @param tipoDocumento
      */
-    public void agregarCliente(String tipo, int idcliente, ArrayList<ICliente>lista1, ArrayList<IInmueble>lista2 ,String apellido,String cc,String ciuRes,String email,String dir,String logIn,String nombre,String pais,String password,String profesion,String telefonoCelular,String telefonoResidencia,String tipoDocumento)
+    public void agregarCliente(String tipo, int idcliente, ArrayList<ICliente>lista1, ArrayList<IInmueble>lista2 ,String apellido,String cc,String email,String logIn,String nombre,String password)
     {
         ICliente nuevo = null;
         if (tipo.equals("Administrador"))
@@ -228,5 +229,23 @@ public class Inmobiliaria implements IInmobiliaria
             nuevo = c;
         }
         listaClientes.put(idcliente+"", nuevo);
+        persistencia.persistirNuevoCliente(nuevo);
+    }
+
+    /**
+     * agrega un nuevo inmueble a la BD
+     */
+    public void agregaInmueble(int comprador,String descripcion,int logInVendedor,String nombre,String tipo,int idInmueble)
+    {
+        IInmueble nuevo = new Inmueble();
+        nuevo.setComprador(comprador);
+        nuevo.setDescripcion(descripcion);
+        nuevo.setLogInVendedor(logInVendedor);
+        nuevo.setNombre(nombre);
+        nuevo.setTipo(tipo);
+        nuevo.setidInmueble(idInmueble);
+
+        listaInmuebles.put(idInmueble+"", nuevo);
+        persistencia.persistirNuevoInmueble(nuevo);
     }
 }

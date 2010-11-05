@@ -82,5 +82,5 @@ public interface IInmobiliaria
      * @param telefonoResidencia
      * @param tipoDocumento
      */
-    public void agregarCliente(String tipo, int idcliente, ArrayList<ICliente> lista1, ArrayList<IInmueble> lista2, String apellido, String cc, String ciuRes, String email, String dir, String logIn, String nombre, String pais, String password, String profesion, String telefonoCelular, String telefonoResidencia, String tipoDocumento);
+    public void agregarCliente(String tipo, int idcliente, ArrayList<ICliente>lista1, ArrayList<IInmueble>lista2 ,String apellido,String cc,String email,String logIn,String nombre,String password);
 }

@@ -15,6 +15,7 @@ import com.losalpes.mundo.Administrador;
 import com.losalpes.mundo.Cliente;
 import com.losalpes.mundo.ICliente;
 import com.losalpes.mundo.IInmueble;
+import com.losalpes.mundo.ITransaccion;
 import com.losalpes.mundo.Vendedor;
 import java.util.ArrayList;
 import java.util.List;
@@ -170,6 +171,21 @@ public class PersistenceServices implements IPersistenceServices {
          
          em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
                     "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"','"+logInVendedor+"')");
+    }
+
+    /**
+     * persiste una nueva transaccion
+     * @param nueva
+     */
+    public void persistirNuevaTransaccion(ITransaccion nueva)
+    {
+        String estado = nueva.getEstado();
+        int idcomprador = nueva.getIdcomprador();
+        int idinmueble = nueva.getIdinmueble();
+        int idtransaccion = nueva.getIdtransaccion();
+
+        em.createQuery("INSERT INTO Transaccion(estado, idcomprador, idinmueble, idtransaccion) " +
+                    "VALUES('"+estado+"','"+idcomprador+"','"+idinmueble+"','"+idtransaccion+"')");
     }
 
     /**
