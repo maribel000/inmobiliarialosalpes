@@ -27,11 +27,6 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>catalogo_frag</managed-bean-name>
-        <managed-bean-class>inmuebleslawar.catalogo_frag</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
         <managed-bean-name>header_frag</managed-bean-name>
         <managed-bean-class>inmuebleslawar.header_frag</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
@@ -41,9 +36,22 @@
         <managed-bean-class>inmuebleslawar.index2</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
-    <managed-bean>
-        <managed-bean-name>page2</managed-bean-name>
-        <managed-bean-class>inmuebleslawar.page2</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/index.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>catalogo_publico</from-outcome>
+            <to-view-id>/catalogo.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login_publico</from-outcome>
+            <to-view-id>/login.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/login.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>login_fail</from-outcome>
+            <to-view-id>/login_error.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
