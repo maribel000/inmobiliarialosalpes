@@ -39,6 +39,11 @@ public class Inmobiliaria implements IInmobiliaria
      */
     private IPersistenceServices persistencia;
 
+    /**
+     * contiene las transaccion actuales
+     */
+    private Hashtable<String, ITransaccion> listaTransacciones;
+
     // --------------------------------------------
     // Constructor
     // --------------------------------------------
@@ -54,8 +59,7 @@ public class Inmobiliaria implements IInmobiliaria
             IInmueble nuevo = new Inmueble(i,"Nombre"+i,"Descripcion"+i, "casa");
             listaInmuebles.put(""+i, nuevo);
         }
-        System.out.println(listaInmuebles.size());
-
+        listaTransacciones = new Hashtable<String, ITransaccion>();
     }
 
     // --------------------------------------------
@@ -102,7 +106,6 @@ public class Inmobiliaria implements IInmobiliaria
                 i++;
             }
         }
-
         catch (Exception e)
         {
 
@@ -131,6 +134,14 @@ public class Inmobiliaria implements IInmobiliaria
     }
 
     /**
+     * Retorna la lista de transaccion que hay en el sistema
+     */
+    public Hashtable<String, ITransaccion> darTransacciones( )
+    {
+        return listaTransacciones;
+    }
+
+    /**
      * busca un inmueble
      * @param referencia
      * @return
@@ -142,6 +153,40 @@ public class Inmobiliaria implements IInmobiliaria
         return buscado;
     }
 
+    /**
+     * agrega una nueva transaccion al sistema
+     */
+    public void agregarTransaccion( String estado,int idcomprador,int idinmueble,int idtransaccion)
+    {
+        ITransaccion nueva = new Transaccion( );
+        nueva.setEstado(estado);
+        nueva.setIdcomprador(idcomprador);
+        nueva.setIdinmueble(idinmueble);
+        nueva.setIdtransaccion(idtransaccion);
+
+        listaTransacciones.put(idtransaccion+"", nueva);
+    }
+
+    /**
+     *
+     * @param tipo
+     * @param idcliente
+     * @param lista1
+     * @param lista2
+     * @param apellido
+     * @param cc
+     * @param ciuRes
+     * @param email
+     * @param dir
+     * @param logIn
+     * @param nombre
+     * @param pais
+     * @param password
+     * @param profesion
+     * @param telefonoCelular
+     * @param telefonoResidencia
+     * @param tipoDocumento
+     */
     public void agregarCliente(String tipo, int idcliente, ArrayList<ICliente>lista1, ArrayList<IInmueble>lista2 ,String apellido,String cc,String ciuRes,String email,String dir,String logIn,String nombre,String pais,String password,String profesion,String telefonoCelular,String telefonoResidencia,String tipoDocumento)
     {
         ICliente nuevo = null;
@@ -182,6 +227,6 @@ public class Inmobiliaria implements IInmobiliaria
 
             nuevo = c;
         }
+        listaClientes.put(idcliente+"", nuevo);
     }
-
 }
