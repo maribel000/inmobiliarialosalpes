@@ -37,12 +37,12 @@ public class Inmueble implements IInmueble
     /**
      * logIn vendedor
      */
-    private String logInVendedor;
+    private int logInVendedor;
 
     /**
      * losIn comprador
      */
-    private String comprador;
+    private int logInComprador;
 
     // ---------------------------------------
     // Constructor
@@ -138,23 +138,23 @@ public class Inmueble implements IInmueble
      * retorna id comprador
      * @return
      */
-    public String getComprador() {
-        return comprador;
+    public int getComprador() {
+        return logInComprador;
     }
 
     /**
      * cambia id comprador
      * @param comprador
      */
-    public void setComprador(String comprador) {
-        this.comprador = comprador;
+    public void setComprador(int comprador) {
+        this.logInComprador = comprador;
     }
 
     /**
      * retorna login vendedor
      * @return
      */
-    public String getLogInVendedor() {
+    public int getLogInVendedor() {
         return logInVendedor;
     }
 
@@ -162,7 +162,7 @@ public class Inmueble implements IInmueble
      * modifica id vendedor
      * @param logInVendedor
      */
-    public void setLogInVendedor(String logInVendedor) {
+    public void setLogInVendedor(int logInVendedor) {
         this.logInVendedor = logInVendedor;
     }
 

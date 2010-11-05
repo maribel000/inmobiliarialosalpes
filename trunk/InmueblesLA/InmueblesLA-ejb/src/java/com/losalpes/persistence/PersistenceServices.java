@@ -165,23 +165,36 @@ public class PersistenceServices implements IPersistenceServices {
          String nombre = nuevo.getNombre();
          String descripcion = nuevo.getDescripcion();
          String tipo = nuevo.getTipo();
+         int logInVendedor = nuevo.getLogInVendedor();
 
          
-         em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, interiorExterior, alto, ancho, " +
-                    "profundidad, color, peso, tipo) " +
-                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"')");
-                    
+         em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
+                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"','"+logInVendedor+"')");
     }
 
     /**
      * busca los inmuebles que tengan por id el del cliente c
      * @param c
      */
-    public List consultarInmueblesAsociadosCliente ( ICliente c )
+    public List consultarInmueblesAsociadosClienteVendedor ( ICliente c )
     {
         int id = c.getIdcliente();
         List temp = new ArrayList( );
-        String query = "Select * From Inmueble Where idcliente = '"+id+"'";
+        String query = "Select * From Inmueble Where losInVendedor = '"+id+"'";
+
+        temp = em.createQuery(query).getResultList();
+        return temp;
+    }
+
+        /**
+     * busca los inmuebles que tengan por id el del cliente c
+     * @param c
+     */
+    public List consultarInmueblesAsociadosClienteComprador ( ICliente c )
+    {
+        int id = c.getIdcliente();
+        List temp = new ArrayList( );
+        String query = "Select * From Inmueble Where losInComprador = '"+id+"'";
 
         temp = em.createQuery(query).getResultList();
         return temp;
@@ -203,7 +216,24 @@ public class PersistenceServices implements IPersistenceServices {
     }
     
     /**
-     * Retorna los inmuebles dado 
+     * Retorna los inmuebles dado un tipo
      */
+    public List darInmueblesPorTipo( String tipo )
+    {
+        List temp = new ArrayList( );
 
+        String query = "Select * From Inmuebles Where tipo = '"+tipo+"'";
+        temp = em.createQuery(query).getResultList();
+
+        return temp;
+    }
+
+    /**
+     * registra un inmueble a un comprador
+     */
+    public void registrarInmuebleComprador(int logInComprador)
+    {
+         em.createQuery("INSERT INTO Inmueble(logInComprador) " +
+                    "VALUES('"+logInComprador+"')");
+    }
 }
