@@ -20,7 +20,7 @@
         <!--******************** START TITLE BAR ********************-->
         <div id="header">
             <div id="logo">
-                <h1><a href="index.php">InAlpes</a></h1>
+                <h1><a href="index.jsp">InAlpes</a></h1>
                 <h2><a href="">tu inmobiliaria</a></h2>
             </div>
             <div id="menu">
