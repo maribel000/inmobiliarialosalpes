@@ -7,6 +7,7 @@ package com.losalpes.persistence;
 
 import com.losalpes.mundo.ICliente;
 import com.losalpes.mundo.IInmueble;
+import com.losalpes.mundo.ITransaccion;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -98,6 +99,12 @@ public interface IPersistenceServices {
      * @param nuevo
      */
     public void persistirNuevoInmueble( IInmueble nuevo );
+
+    /**
+     * persiste una nueva transaccion
+     * @param nueva
+     */
+    public void persistirNuevaTransaccion(ITransaccion nueva);
 
     /**
      * busca los inmuebles que tengan por id el del cliente c
