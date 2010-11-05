@@ -106,52 +106,38 @@ public class PersistenceServices implements IPersistenceServices {
             String nombre = c.getNombre();
             String apellido = c.getApellido();
             String cedula = c.getDocumentoIdentificacion();
-            String tipoDocumento = c.getTipoDocumento();
-            String telefonoResidencia = c.getTelefonoResidencia();
-            String telefonoCelular = c.getTelefonoCelular();
-            String ciudadResidencia = c.getCiudadResidencia();
-            String direccion = c.getDireccion();
-            String pais = c.getPais();
-            String profesion = c.getProfesion();
             String email = c.getCorreoElectronico();
             String logIn = c.getLogIn();
+            String tipoUsuario = c.darTipoCliente();
+            String pass = c.getPassword();
 
-            em.createQuery("INSERT INTO Usuarios(nombre, apellido, cedula, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
-                    "ciudadResidencia, direccion, pais, profesion, email, logIn) " +
-                    "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+tipoDocumento+"','"+telefonoResidencia+"','"+telefonoCelular+"','"
-                    +ciudadResidencia+"','"+direccion+"','"+pais+"','"+profesion+"','"+email+"','"+logIn+"')");
+            em.createQuery("INSERT INTO Usuarios(nombre, apellido, cedula, email, logIn, tipoUsuario) " +
+                    "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+email+"','"+logIn+"','"+pass+"','"+tipoUsuario+"')");
         }
 
         else if (tipo.equals("Vendedor"))
         {
-            Vendedor c = (Vendedor) cliente;
-            String nombre = c.getNombre();
-            String apellido = c.getApellido();
-            String cedula = c.getCedula();
-            //String cedula = c.getDocumentoIdentificacion();
-            String telefonoResidencia = c.getTelefonoResidencia();
-            String telefonoCelular = c.getTelefonoCelular();
-            String ciudadResidencia = c.getCiudadResidencia();
-            String direccion = c.getDireccion();
-            String pais = c.getPais();
-            String profesion = c.getProfesion();
-            String email = c.getCorreoElectronico();
-            String logIn = c.getLogIn();
+            Vendedor v = (Vendedor) cliente;
+            String nombre = v.getNombre();
+            String apellido = v.getApellido();
+            String cedula = v.getCedula();
+            String email = v.getCorreoElectronico();
+            String logIn = v.getLogIn();
+            String tipoUsuario = v.darTipoCliente();
+            String pass = v.getPassword();
 
-            /*em.createQuery("INSERT INTO Clientes(nombre, apellido, cedula, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
-                    "ciudadResidencia, direccion, pais, profesion, email, logIn) " +
-                    "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+tipoDocumento+"','"+telefonoResidencia+"','"+telefonoCelular+"','"
-                    +ciudadResidencia+"','"+direccion+"','"+pais+"','"+profesion+"','"+email+"','"+logIn+"')");
-             */
+            em.createQuery("INSERT INTO Usuarios(nombre, apellido, cedula, email, logIn, tipoUsuario) " +
+                    "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+email+"','"+logIn+"','"+pass+"','"+tipoUsuario+"')");
         }
 
         else if (tipo.equals("Administrador"))
         {
-            Administrador c = (Administrador) cliente;
-            String logIn = c.getLogIn();
+            Administrador a = (Administrador) cliente;
+            String logIn = a.getLogIn();
+            String pass = a.getPassword();
 
             em.createQuery("INSERT INTO Clientes(logIn) " +
-                    "VALUES('"+logIn+"')");
+                    "VALUES('"+logIn+"','"+pass+"')");
         }
     }
 
