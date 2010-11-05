@@ -5,6 +5,9 @@
 
 package com.losalpes.persistence;
 
+import com.losalpes.mundo.ICliente;
+import com.losalpes.mundo.IInmueble;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -46,5 +49,62 @@ public interface IPersistenceServices {
      * @return obj. Resultado de la consulta.
      */
     public java.lang.Object findById(java.lang.Class c, java.lang.Object id);
+
+        // --------------------------
+    // Persistencia BD
+    // --------------------------
+
+    /**
+     * Tabla Clientes
+     * nombre
+     * apellido
+     * cedula
+     * tipoDocumento
+     * telefonoResidencia
+     * telefonoCelular
+     * ciudadResidencia
+     * direccion
+     * pais
+     * profesion
+     * email
+     * TABLA PARA INMUEBLES_COMPRADOS ó INMUEBLES_INSCRITOS ó INMUEBLES_REGISTRADOS
+     * TABLA PARA INMUEBLES_BUSCADOS
+     * logIn
+     * password
+     */
+
+    /**
+     * Guarda un nuevo ICliente en la BD
+     * @param cliente
+     */
+    public void persistirNuevoCliente(ICliente cliente);
+
+    /**
+     * Tabla Inmuebles
+     * id
+     * nombre
+     * descripcion
+     * interiorExterior
+     * alto
+     * ancho
+     * profundidad
+     * color
+     * peso
+     * tipo
+     */
+
+    /**
+     * Guarda un nuevo IInmueble en la BD
+     * @param nuevo
+     */
+    public void persistirNuevoInmueble( IInmueble nuevo );
+
+    /**
+     * busca los inmuebles que tengan por id el del cliente c
+     * @param c
+     */
+    public List consultarInmueblesAsociadosCliente ( ICliente c );
+
+    public List darCliente ( int idCliente );
     
 }

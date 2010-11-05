@@ -118,8 +118,8 @@ public class PersistenceServices implements IPersistenceServices {
 
             em.createQuery("INSERT INTO Usuarios(nombre, apellido, cedula, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
                     "ciudadResidencia, direccion, pais, profesion, email, logIn) " +
-                    "VALUES("+nombre+","+apellido+","+cedula+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
-                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+email+","+logIn+")");
+                    "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+tipoDocumento+"','"+telefonoResidencia+"','"+telefonoCelular+"','"
+                    +ciudadResidencia+"','"+direccion+"','"+pais+"','"+profesion+"','"+email+"','"+logIn+"')");
         }
 
         else if (tipo.equals("Vendedor"))
@@ -127,8 +127,8 @@ public class PersistenceServices implements IPersistenceServices {
             Vendedor c = (Vendedor) cliente;
             String nombre = c.getNombre();
             String apellido = c.getApellido();
+            String cedula = c.getCedula();
             //String cedula = c.getDocumentoIdentificacion();
-            String tipoDocumento = c.getTipoDocumento();
             String telefonoResidencia = c.getTelefonoResidencia();
             String telefonoCelular = c.getTelefonoCelular();
             String ciudadResidencia = c.getCiudadResidencia();
@@ -140,8 +140,8 @@ public class PersistenceServices implements IPersistenceServices {
 
             /*em.createQuery("INSERT INTO Clientes(nombre, apellido, cedula, tipoDocumento, telefonoResidencia, TelefonoCelular, " +
                     "ciudadResidencia, direccion, pais, profesion, email, logIn) " +
-                    "VALUES("+nombre+","+apellido+","+cedula+","+tipoDocumento+","+telefonoResidencia+","+telefonoCelular+","
-                    +ciudadResidencia+","+direccion+","+pais+","+profesion+","+email+","+logIn+")");
+                    "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+tipoDocumento+"','"+telefonoResidencia+"','"+telefonoCelular+"','"
+                    +ciudadResidencia+"','"+direccion+"','"+pais+"','"+profesion+"','"+email+"','"+logIn+"')");
              */
         }
 
@@ -151,7 +151,7 @@ public class PersistenceServices implements IPersistenceServices {
             String logIn = c.getLogIn();
 
             em.createQuery("INSERT INTO Clientes(logIn) " +
-                    "VALUES("+logIn+")");
+                    "VALUES('"+logIn+"')");
         }
     }
 
@@ -175,6 +175,7 @@ public class PersistenceServices implements IPersistenceServices {
      */
     public void persistirNuevoInmueble( IInmueble nuevo )
     {
+         int referencia = nuevo.getidInmueble();
          //String referencia = nuevo.getidInmueble();
          String nombre = nuevo.getNombre();
          String descripcion = nuevo.getDescripcion();
@@ -189,8 +190,8 @@ public class PersistenceServices implements IPersistenceServices {
          /*
          em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, interiorExterior, alto, ancho, " +
                     "profundidad, color, peso, tipo) " +
-                    "VALUES("+referencia+","+nombre+","+descripcion+","+interiorExterior+","+alto+","+ancho+","
-                    +profundidad+","+color+","+peso+","+tipo+")");
+                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+interiorExterior+"','"+alto+"','"+ancho+"','"
+                    +profundidad+"','"+color+"','"+peso+"','"+tipo+"')");
                     */
     }
 
@@ -206,6 +207,15 @@ public class PersistenceServices implements IPersistenceServices {
 
         temp = em.createQuery(query).getResultList();
         return temp;
+    }
 
+    public List darCliente ( int idCliente )
+    {
+        List temp = new ArrayList( );
+
+        String query = "Select * From Clientes Where idcliente = '"+idCliente+"'";
+        temp = em.createQuery(query).getResultList();
+
+        return temp;
     }
 }
