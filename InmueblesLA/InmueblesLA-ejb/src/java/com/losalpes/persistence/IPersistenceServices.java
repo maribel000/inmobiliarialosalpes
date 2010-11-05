@@ -103,7 +103,7 @@ public interface IPersistenceServices {
      * busca los inmuebles que tengan por id el del cliente c
      * @param c
      */
-    public List consultarInmueblesAsociadosCliente ( ICliente c );
+    public List consultarInmueblesAsociadosClienteVendedor ( ICliente c );
 
     public List darCliente ( int idCliente );
     

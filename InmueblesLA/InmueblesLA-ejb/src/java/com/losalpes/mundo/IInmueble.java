@@ -55,29 +55,29 @@ public interface IInmueble
      */
     public void setidInmueble(int idInmueble);
 
-    /**
+/**
      * retorna id comprador
      * @return
      */
-    public String getComprador();
+    public int getComprador();
 
     /**
      * cambia id comprador
      * @param comprador
      */
-    public void setComprador(String comprador);
+    public void setComprador(int comprador);
 
     /**
      * retorna login vendedor
      * @return
      */
-    public String getLogInVendedor();
+    public int getLogInVendedor();
 
     /**
      * modifica id vendedor
      * @param logInVendedor
      */
-    public void setLogInVendedor(String logInVendedor);
+    public void setLogInVendedor(int logInVendedor);
 
     /**
      * obtiene tipo inmueble
