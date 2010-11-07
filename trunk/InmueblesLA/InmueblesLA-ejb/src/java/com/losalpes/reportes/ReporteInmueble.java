@@ -5,8 +5,7 @@
 
 package com.losalpes.reportes;
 
-import com.losalpes.mundo.IInmobiliaria;
-import com.losalpes.mundo.Inmueble;
+import com.losalpes.entities.Inmueble;
 
 /**
  * Esta clase es el modelo de la informacion presente en el informe
@@ -19,17 +18,17 @@ public class ReporteInmueble {
      */
     private String idReporte;
     private Inmueble inmueble;
-    private IInmobiliaria inmobiliaria;
+//    private IInmobiliaria inmobiliaria;
 
     /**
      * Class Constructor
      * @param id - el identificador del reporte
      */
     public ReporteInmueble(String id) {
-        inmobiliaria=CacheReporteInmueble.inmob;
+        //inmobiliaria=CacheReporteInmueble.inmob;
         inmueble = new Inmueble();
         idReporte = id;
-        Inmueble buscado = (Inmueble) inmobiliaria.buscarInmuebleReferencia(id);
+  /*      Inmueble buscado = inmobiliaria.buscarInmuebleReferencia(id);
         if(buscado != null) {
             System.out.println(buscado.getidInmueble());
             System.out.println(buscado.getNombre());
@@ -37,7 +36,7 @@ public class ReporteInmueble {
             inmueble.setidInmueble(buscado.getidInmueble());
             inmueble.setNombre(buscado.getNombre());
             inmueble.setDescripcion(buscado.getDescripcion());
-        }
+        }*/
     }
 
     //Class Methods

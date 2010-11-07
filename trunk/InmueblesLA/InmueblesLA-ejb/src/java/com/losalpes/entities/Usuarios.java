@@ -3,59 +3,109 @@
  * and open the template in the editor.
  */
 
-package com.losalpes.mundo;
+package com.losalpes.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
  *
  * @author DANIEL
  */
-public class Cliente implements ICliente
+@Entity
+@Table(name="USUARIOS")
+public class Usuarios implements Serializable
 {
     // -----------------------------------------
     // Atributos
     // -----------------------------------------
     /**
-     * ID del cliente
+     * ID del usuario
      */
-    private int idcliente;
+    @Id
+    @Column(name = "idusuario")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USU")
+    @SequenceGenerator(name = "SEQ_USU", allocationSize = 1, sequenceName = "usuarios_seq")
+    private int idusuario;
 
     /**
-     * Contiene el nombre del cliente
+     * Contiene el nombre del usuario
      */
     private String nombre;
 
     /**
-     * Contiene el apellido del cliente
+     * Contiene el apellido del usuario
      */
     private String apellido;
 
     /**
-     * Contiene el documento de identificacion del cliente
+     * Contiene el documento de identificacion del usuario
      */
     private String cc;
 
     /**
-     * Contiene el correo electronico del cliente
+     * Contiene el correo electronico del usuario
      */
     private String email;
 
-    private ArrayList<IInmueble> inmueblesComprado;
+    /**
+     * lista de todos los inmuebles asociados al usuario
+     */
+    @OneToMany(mappedBy = "iddueno", cascade = {CascadeType.ALL})
+    private List<Inmueble> inmuebles;
 
-    private ArrayList<IInmueble> inmueblesBuscado;
-
+    /**
+     * login del usuario
+     */
     private String logIn;
 
+    /**
+     * clave del usuario
+     */
     private String password;
 
+    /**
+     * lista de todos los usuarios registrados
+     */
+    private List<Usuarios> usuarios;
+
+    /**
+     * tipo del usuario
+     */
+    @ManyToOne(optional=false)
+    private String tipoUsuario;
+
+    /**
+     * Lista de transacciones que tiene
+     */
+    @JoinColumn
+    @OneToMany(mappedBy = "idcomprador", cascade = {CascadeType.ALL})
+    List<Transacciones> transacciones;
+
+    
     // -----------------------------------------
     // Constructor
     // -----------------------------------------
-    public Cliente()
+    /**
+     *
+     */
+    public Usuarios()
     {
-        inmueblesBuscado = new ArrayList<IInmueble>();
-        inmueblesComprado = new ArrayList<IInmueble>();
+        usuarios = new ArrayList<Usuarios>();
+        inmuebles = new ArrayList<Inmueble>();
+        transacciones = new ArrayList<Transacciones>();
     }
 
     // -----------------------------------------
@@ -65,33 +115,9 @@ public class Cliente implements ICliente
     /**
      * agrega un inmueble a la lista de comprados
      */
-    public void agregarInmuebleComprado( IInmueble nuevo )
+    public void agregarInmueble( Inmueble nuevo )
     {
-        inmueblesComprado.add(nuevo);
-    }
-
-    /**
-     * agrega un nuevo inmueble que le interesa al usuario
-     */
-    public void agregarInmuebleInteresado( IInmueble nuevo )
-    {
-        inmueblesBuscado.add(nuevo);
-    }
-
-    /**
-     * compra un inmueble
-     */
-    public void comprarInmueble( IInmueble nuevo )
-    {
-        if (inmueblesBuscado.contains(nuevo))
-        {
-            inmueblesBuscado.remove(nuevo);
-            inmueblesComprado.add(nuevo);
-        }
-        else
-        {
-            inmueblesComprado.add(nuevo);
-        }
+        inmuebles.add(nuevo);
     }
 
     // -----------------------------------------
@@ -178,12 +204,12 @@ public class Cliente implements ICliente
         this.logIn = logIn;
     }
 
-    public int getIdcliente() {
-        return idcliente;
+    public int getIdusuario() {
+        return idusuario;
     }
 
-    public void setIdcliente(int idcliente) {
-        this.idcliente = idcliente;
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
     }
 
     public String getPassword() {
@@ -193,8 +219,27 @@ public class Cliente implements ICliente
     public void setPassword(String password) {
         this.password = password;
     }
+     public String getCc() {
+        return cc;
+    }
 
-    public String darTipoCliente() {
-        return "Cliente";
+    public void setCc(String cc) {
+        this.cc = cc;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 }

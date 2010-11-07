@@ -3,13 +3,31 @@
  * and open the template in the editor.
  */
 
-package com.losalpes.mundo;
+package com.losalpes.entities;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
  *
  * @author DANIEL
  */
-public class Inmueble implements IInmueble
+@Entity
+@Table(name="INMUEBLE")
+public class Inmueble implements Serializable
 {
     // ---------------------------------------
     // Atributos
@@ -17,32 +35,55 @@ public class Inmueble implements IInmueble
     /**
      * Contiene el ID del inmueble
      */
+    @Id
+    @JoinColumn(name = "idinmuebles")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_INM")
+    @SequenceGenerator(name = "SEQ_INM", allocationSize = 1, sequenceName = "inmuebles_seq")
     private int idInmueble;
     
     /**
      * Contiene el nombre del inmueble
      */
+    @Column
     private String nombre;
     
     /**
      * Contiene la descripcion del inmueble
      */
+    @Column
     private String descripcion;
 
     /**
      * tipo del inmueble
      */
+    @Column
     private String tipo;
 
     /**
      * logIn vendedor
      */
-    private int logInVendedor;
+    @Column
+    private int idvendedor;
 
     /**
      * losIn comprador
      */
-    private int logInComprador;
+    @Column
+    private int idcomprador;
+
+    /**
+     * id del dueño
+     */
+    @JoinColumn
+    @ManyToOne(optional=false)
+    private int iddueno;
+
+    /**
+     * lista de las transacciones asociadas a este inmueble
+     */
+    @JoinColumn
+    @OneToMany(mappedBy = "idinmueble", cascade = {CascadeType.ALL})
+    private List<Transacciones> transacciones;
 
     // ---------------------------------------
     // Constructor
@@ -52,7 +93,7 @@ public class Inmueble implements IInmueble
      */
     public Inmueble()
     {
-        
+        transacciones = new ArrayList<Transacciones>();
     }
 
     /**
@@ -134,37 +175,6 @@ public class Inmueble implements IInmueble
         this.idInmueble = idInmueble;
     }
 
-    /**
-     * retorna id comprador
-     * @return
-     */
-    public int getComprador() {
-        return logInComprador;
-    }
-
-    /**
-     * cambia id comprador
-     * @param comprador
-     */
-    public void setComprador(int comprador) {
-        this.logInComprador = comprador;
-    }
-
-    /**
-     * retorna login vendedor
-     * @return
-     */
-    public int getLogInVendedor() {
-        return logInVendedor;
-    }
-
-    /**
-     * modifica id vendedor
-     * @param logInVendedor
-     */
-    public void setLogInVendedor(int logInVendedor) {
-        this.logInVendedor = logInVendedor;
-    }
 
     /**
      * obtiene tipo inmueble
@@ -180,5 +190,39 @@ public class Inmueble implements IInmueble
      */
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+
+
+    public int getIdInmueble() {
+        return idInmueble;
+    }
+
+    public void setIdInmueble(int idInmueble) {
+        this.idInmueble = idInmueble;
+    }
+
+    public int getIdcomprador() {
+        return idcomprador;
+    }
+
+    public void setIdcomprador(int idcomprador) {
+        this.idcomprador = idcomprador;
+    }
+
+    public int getIddueno() {
+        return iddueno;
+    }
+
+    public void setIddueno(int iddueno) {
+        this.iddueno = iddueno;
+    }
+
+    public int getIdvendedor() {
+        return idvendedor;
+    }
+
+    public void setIdvendedor(int idvendedor) {
+        this.idvendedor = idvendedor;
     }
 }
