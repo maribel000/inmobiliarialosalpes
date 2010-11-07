@@ -94,6 +94,8 @@ public class Inmueble implements Serializable
     public Inmueble()
     {
         transacciones = new ArrayList<Transacciones>();
+        idcomprador = -1;
+        idvendedor = -1;
     }
 
     /**
@@ -109,6 +111,9 @@ public class Inmueble implements Serializable
         nombre = nom;
         descripcion = desc;
         tipo = ntipo;
+        idcomprador = -1;
+        idvendedor = -1;
+
     }
 
     // ---------------------------------------
