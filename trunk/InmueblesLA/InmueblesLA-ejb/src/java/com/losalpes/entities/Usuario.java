@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -26,7 +25,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="USUARIOS")
-public class Usuarios implements Serializable
+public class Usuario implements Serializable
 {
     // -----------------------------------------
     // Atributos
@@ -43,48 +42,50 @@ public class Usuarios implements Serializable
     /**
      * Contiene el nombre del usuario
      */
+    @Column
     private String nombre;
 
     /**
      * Contiene el apellido del usuario
      */
+    @Column
     private String apellido;
 
     /**
      * Contiene el documento de identificacion del usuario
      */
+    @Column
     private String cc;
 
     /**
      * Contiene el correo electronico del usuario
      */
+    @Column
     private String email;
 
     /**
      * lista de todos los inmuebles asociados al usuario
      */
+    @JoinColumn
     @OneToMany(mappedBy = "iddueno", cascade = {CascadeType.ALL})
     private List<Inmueble> inmuebles;
 
     /**
      * login del usuario
      */
+    @Column
     private String logIn;
 
     /**
      * clave del usuario
      */
+    @Column
     private String password;
-
-    /**
-     * lista de todos los usuarios registrados
-     */
-    private List<Usuarios> usuarios;
 
     /**
      * tipo del usuario
      */
-    @ManyToOne(optional=false)
+    @Column
     private String tipoUsuario;
 
     /**
@@ -101,9 +102,8 @@ public class Usuarios implements Serializable
     /**
      *
      */
-    public Usuarios()
+    public Usuario()
     {
-        usuarios = new ArrayList<Usuarios>();
         inmuebles = new ArrayList<Inmueble>();
         transacciones = new ArrayList<Transacciones>();
     }

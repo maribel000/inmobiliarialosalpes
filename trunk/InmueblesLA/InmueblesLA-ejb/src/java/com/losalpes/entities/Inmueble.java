@@ -76,7 +76,7 @@ public class Inmueble implements Serializable
      */
     @JoinColumn
     @ManyToOne(optional=false)
-    private int iddueno;
+    private Usuario iddueno;
 
     /**
      * lista de las transacciones asociadas a este inmueble
@@ -210,11 +210,11 @@ public class Inmueble implements Serializable
         this.idcomprador = idcomprador;
     }
 
-    public int getIddueno() {
+    public Usuario getIddueno() {
         return iddueno;
     }
 
-    public void setIddueno(int iddueno) {
+    public void setIddueno(Usuario iddueno) {
         this.iddueno = iddueno;
     }
 
