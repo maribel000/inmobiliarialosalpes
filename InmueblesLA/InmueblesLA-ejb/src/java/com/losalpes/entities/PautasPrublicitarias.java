@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.losalpes.mundo;
+package com.losalpes.entities;
 
 /**
  *

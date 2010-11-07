@@ -5,7 +5,7 @@
 
 package com.losalpes.reportes;
 
-import com.losalpes.mundo.Inmueble;
+import com.losalpes.entities.Inmueble;
 import java.util.ArrayList;
 import javax.ejb.Stateless;
 
