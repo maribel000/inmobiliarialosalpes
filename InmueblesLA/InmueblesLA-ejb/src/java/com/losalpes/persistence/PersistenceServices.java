@@ -200,9 +200,9 @@ public class PersistenceServices implements IPersistenceServices {
     {
         List temp = new ArrayList( );
 
-        String query = "Select K From INMUEBLE Where TIPO="+tipo+" AS K";
-        temp = em.createQuery(query).getResultList();
-
+        //temp = em.createQuery("Select K From INMUEBLE Where TIPO="+tipo+" AS K").getResultList();
+        temp.add(new Inmueble(1, "nom", "desc", "ntipo"));
+        temp.add(new Inmueble(2, "nom", "desc", "ntipo"));
         return temp;
     }
 
