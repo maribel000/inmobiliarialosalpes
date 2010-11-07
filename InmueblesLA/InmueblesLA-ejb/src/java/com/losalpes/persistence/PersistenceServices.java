@@ -200,7 +200,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         List temp = new ArrayList( );
 
-        String query = "Select * From INMUEBLE Where tipo = '"+tipo+"'";
+        String query = "Select * From INMUEBLE Where tipo = "+tipo+"";
         temp = em.createQuery(query).getResultList();
 
         return temp;
