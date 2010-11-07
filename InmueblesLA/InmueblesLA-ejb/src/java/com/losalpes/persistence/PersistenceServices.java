@@ -114,7 +114,7 @@ public class PersistenceServices implements IPersistenceServices {
         String pass = c.getPassword();
         String tipoUsuario = c.getTipoUsuario();
 
-        em.createQuery("INSERT INTO Usuarios(nombre, apellido, cedula, email, logIn, tipoUsuario) " +
+        em.createQuery("INSERT INTO USUARIOS(nombre, apellido, cedula, email, logIn, tipoUsuario) " +
                 "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+email+"','"+logIn+"','"+pass+"','"+tipoUsuario+"')");
     }
 
@@ -131,7 +131,7 @@ public class PersistenceServices implements IPersistenceServices {
          int idVendedor = nuevo.getIdvendedor();
 
 
-         em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
+         em.createQuery("INSERT INTO INMUEBLE(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
                     "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"','"+idVendedor+"')");
     }
 
@@ -146,7 +146,7 @@ public class PersistenceServices implements IPersistenceServices {
         int idinmueble = nueva.getIdinmueble().getIdInmueble();
         int idtransaccion = nueva.getIdtransaccion();
 
-        em.createQuery("INSERT INTO Transaccion(estado, idcomprador, idinmueble, idtransaccion) " +
+        em.createQuery("INSERT INTO TRANSACCION(estado, idcomprador, idinmueble, idtransaccion) " +
                     "VALUES('"+estado+"','"+idcomprador+"','"+idinmueble+"','"+idtransaccion+"')");
     }
 
@@ -158,7 +158,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         int id = c.getIdusuario();
         List temp = new ArrayList( );
-        String query = "Select * From Inmueble Where losInVendedor = '"+id+"'";
+        String query = "Select * From INMUEBLE Where losInVendedor = '"+id+"'";
 
         temp = em.createQuery(query).getResultList();
         return temp;
@@ -172,7 +172,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         int id = c.getIdusuario();
         List temp = new ArrayList( );
-        String query = "Select * From Inmueble Where idComprador = '"+id+"'";
+        String query = "Select * From INMUEBLE Where idComprador = '"+id+"'";
 
         temp = em.createQuery(query).getResultList();
         return temp;
@@ -187,7 +187,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         List temp = new ArrayList( );
 
-        String query = "Select * From Clientes Where idusuario = '"+idCliente+"'";
+        String query = "Select * From USUARIOS Where idusuario = '"+idCliente+"'";
         temp = em.createQuery(query).getResultList();
 
         return temp;
@@ -200,7 +200,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         List temp = new ArrayList( );
 
-        String query = "Select * From Inmuebles Where tipo = '"+tipo+"'";
+        String query = "Select * From INMUEBLE Where tipo = '"+tipo+"'";
         temp = em.createQuery(query).getResultList();
 
         return temp;
@@ -211,7 +211,7 @@ public class PersistenceServices implements IPersistenceServices {
      */
     public void registrarInmuebleComprador(int logInComprador)
     {
-         em.createQuery("INSERT INTO Inmueble(idComprador) " +
+         em.createQuery("INSERT INTO INMUEBLE(idComprador) " +
                     "VALUES('"+logInComprador+"')");
     }
 
