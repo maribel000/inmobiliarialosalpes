@@ -52,7 +52,7 @@
 
 <%
          PersistenceServices p = new PersistenceServices();
-         List l = p.darInmueblesPorTipo("1");
+         List l = p.darInmueblesPorTipo(1);
 %>
 
 <%= l.get(1) %>
