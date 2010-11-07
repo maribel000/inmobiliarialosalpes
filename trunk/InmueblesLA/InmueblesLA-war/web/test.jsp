@@ -4,7 +4,7 @@
     Author     : andres
 --%>
 
-<%@ page import="com.losalpes.persistence.Persistence,java.util.List, javax.naming.*"%>
+<%@ page import="com.losalpes.persistence.PersistenceServices,java.util.List, javax.naming.*"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -51,7 +51,7 @@
                         <div class="entry">
 
 <%
-         Persistence p = new Persistence();
+         PersistenceServices p = new PersistenceServices();
          List l = p.darInmueblesPorTipo("1");
 %>
 
