@@ -7,6 +7,7 @@ package com.losalpes.services;
 
 import com.losalpes.entities.Inmueble;
 import com.losalpes.persistence.IPersistence;
+import com.losalpes.persistence.Persistence;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -25,7 +26,7 @@ public class Inmobiliaria implements IInmobiliaria
      * Persistencia
      */
     @EJB
-    private IPersistence persistencia;
+    private IPersistence persistencia = new Persistence();
 
 
     // --------------------------------------------

@@ -5,13 +5,13 @@
 
 package com.losalpes.persistence;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  *
  * @author DANIEL
  */
-@Local
+@Remote
 public interface IPersistence {
 
     /**
