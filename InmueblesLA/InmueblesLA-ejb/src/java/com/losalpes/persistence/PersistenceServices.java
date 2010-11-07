@@ -196,7 +196,7 @@ public class PersistenceServices implements IPersistenceServices {
     /**
      * Retorna los inmuebles dado un tipo
      */
-    public List darInmueblesPorTipo( String tipo )
+    public List darInmueblesPorTipo( int tipo )
     {
         List temp = new ArrayList( );
 
