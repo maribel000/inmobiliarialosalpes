@@ -14,13 +14,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
  *
  * @author DANIEL
  */
 @Entity
-//@Table(name="TRANSACCION")
+@Table(name="TRANSACCION")
 public class Transacciones implements Serializable
 {
     /**
@@ -35,20 +36,21 @@ public class Transacciones implements Serializable
     /**
      * idcomprador
      */
-    @Column
+    @JoinColumn
     @ManyToOne
-    private int idcomprador;
+    private Usuario idcomprador;
 
     /**
      * idinmueble
      */
     @JoinColumn
     @ManyToOne
-    private int idinmueble;
+    private Inmueble idinmueble;
 
     /**
      * estado
      */
+    @Column
     private String estado;
 
     // ------------------------
@@ -74,19 +76,19 @@ public class Transacciones implements Serializable
         this.estado = estado;
     }
 
-    public int getIdcomprador() {
+    public Usuario getIdcomprador() {
         return idcomprador;
     }
 
-    public void setIdcomprador(int idcomprador) {
+    public void setIdcomprador(Usuario idcomprador) {
         this.idcomprador = idcomprador;
     }
 
-    public int getIdinmueble() {
+    public Inmueble getIdinmueble() {
         return idinmueble;
     }
 
-    public void setIdinmueble(int idinmueble) {
+    public void setIdinmueble(Inmueble idinmueble) {
         this.idinmueble = idinmueble;
     }
 
