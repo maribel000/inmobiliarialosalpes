@@ -12,7 +12,7 @@ import javax.ejb.Remote;
  * @author DANIEL
  */
 @Remote
-public interface IPersistence {
+public interface IPersistenceServices {
 
     /**
      * Permite crear un objeto dentro de la persistencia del sistema.

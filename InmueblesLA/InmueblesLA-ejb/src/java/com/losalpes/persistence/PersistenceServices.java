@@ -21,13 +21,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
+import javax.persistence.Persistence;
 
 /**
  * Implementación de los servicios de persistencia que se le prestan al sistema.
  * @author Daniel Palacios
  */
 @Stateless
-public class Persistence implements IPersistence {
+public class PersistenceServices implements IPersistenceServices {
 
     // -----------------------------------------------
     // Atributos
@@ -48,9 +49,9 @@ public class Persistence implements IPersistence {
     /**
      * Constructor de la clase. Inicializa los atributos.
      */
-    public Persistence() {
-        
-    em = emf.createEntityManager();
+    public PersistenceServices() {
+        emf = Persistence.createEntityManagerFactory("InmueblesLA-ejbPU");
+        em = emf.createEntityManager();
     }
 
     // -----------------------------------------------
