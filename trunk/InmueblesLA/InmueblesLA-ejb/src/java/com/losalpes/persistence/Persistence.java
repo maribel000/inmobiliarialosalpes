@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 
 /**
  * Implementación de los servicios de persistencia que se le prestan al sistema.
@@ -30,6 +32,9 @@ public class Persistence implements IPersistence {
     // -----------------------------------------------
     // Atributos
     // -----------------------------------------------
+
+    @PersistenceUnit
+    private EntityManagerFactory emf;
 
     /**
      * atributo de la persistencia
@@ -44,7 +49,8 @@ public class Persistence implements IPersistence {
      * Constructor de la clase. Inicializa los atributos.
      */
     public Persistence() {
-
+        
+    em = emf.createEntityManager();
     }
 
     // -----------------------------------------------
