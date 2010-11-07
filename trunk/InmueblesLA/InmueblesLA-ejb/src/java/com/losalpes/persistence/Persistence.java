@@ -11,6 +11,9 @@
  */
 package com.losalpes.persistence;
 
+import com.losalpes.entities.Inmueble;
+import com.losalpes.entities.Transacciones;
+import com.losalpes.entities.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,7 +22,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  * Implementación de los servicios de persistencia que se le prestan al sistema.
- * @author Camilo Alvarez
+ * @author Daniel Palacios
  */
 @Stateless
 public class Persistence implements IPersistence {
@@ -85,4 +88,124 @@ public class Persistence implements IPersistence {
     public void update(Object obj) {
         em.merge(obj);
     }
+
+    // --------------------------
+    // Persistencia BD
+    // --------------------------
+
+    /**
+     * Guarda un nuevo ICliente en la BD
+     * @param cliente
+     */
+    public void persistirNuevoCliente(Usuario c)
+    {
+        String nombre = c.getNombre();
+        String apellido = c.getApellido();
+        String cedula = c.getDocumentoIdentificacion();
+        String email = c.getCorreoElectronico();
+        String logIn = c.getLogIn();
+        String pass = c.getPassword();
+        String tipoUsuario = c.getTipoUsuario();
+
+        em.createQuery("INSERT INTO Usuarios(nombre, apellido, cedula, email, logIn, tipoUsuario) " +
+                "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+email+"','"+logIn+"','"+pass+"','"+tipoUsuario+"')");
+    }
+
+    /**
+     * Guarda un nuevo IInmueble en la BD
+     * @param nuevo
+     */
+    public void persistirNuevoInmueble( Inmueble nuevo )
+    {
+         int referencia = nuevo.getidInmueble();
+         String nombre = nuevo.getNombre();
+         String descripcion = nuevo.getDescripcion();
+         String tipo = nuevo.getTipo();
+         int idVendedor = nuevo.getIdvendedor();
+
+
+         em.createQuery("INSERT INTO Inmueble(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
+                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"','"+idVendedor+"')");
+    }
+
+    /**
+     * persiste una nueva transaccion
+     * @param nueva
+     */
+    public void persistirNuevaTransaccion(Transacciones nueva)
+    {
+        String estado = nueva.getEstado();
+        int idcomprador = nueva.getIdcomprador().getIdusuario();
+        int idinmueble = nueva.getIdinmueble().getIdInmueble();
+        int idtransaccion = nueva.getIdtransaccion();
+
+        em.createQuery("INSERT INTO Transaccion(estado, idcomprador, idinmueble, idtransaccion) " +
+                    "VALUES('"+estado+"','"+idcomprador+"','"+idinmueble+"','"+idtransaccion+"')");
+    }
+
+    /**
+     * busca los inmuebles que tengan por id el del cliente c
+     * @param c
+     */
+    public List consultarInmueblesAsociadosClienteVendedor ( Usuario c )
+    {
+        int id = c.getIdusuario();
+        List temp = new ArrayList( );
+        String query = "Select * From Inmueble Where losInVendedor = '"+id+"'";
+
+        temp = em.createQuery(query).getResultList();
+        return temp;
+    }
+
+        /**
+     * busca los inmuebles que tengan por id el del cliente c
+     * @param c
+     */
+    public List consultarInmueblesAsociadosClienteComprador ( Usuario c )
+    {
+        int id = c.getIdusuario();
+        List temp = new ArrayList( );
+        String query = "Select * From Inmueble Where idComprador = '"+id+"'";
+
+        temp = em.createQuery(query).getResultList();
+        return temp;
+    }
+
+    /**
+     * retorna todos los clientes
+     * @param idCliente
+     * @return
+     */
+    public List darCliente ( int idCliente )
+    {
+        List temp = new ArrayList( );
+
+        String query = "Select * From Clientes Where idusuario = '"+idCliente+"'";
+        temp = em.createQuery(query).getResultList();
+
+        return temp;
+    }
+
+    /**
+     * Retorna los inmuebles dado un tipo
+     */
+    public List darInmueblesPorTipo( String tipo )
+    {
+        List temp = new ArrayList( );
+
+        String query = "Select * From Inmuebles Where tipo = '"+tipo+"'";
+        temp = em.createQuery(query).getResultList();
+
+        return temp;
+    }
+
+    /**
+     * registra un inmueble a un comprador
+     */
+    public void registrarInmuebleComprador(int logInComprador)
+    {
+         em.createQuery("INSERT INTO Inmueble(idComprador) " +
+                    "VALUES('"+logInComprador+"')");
+    }
+
 }
