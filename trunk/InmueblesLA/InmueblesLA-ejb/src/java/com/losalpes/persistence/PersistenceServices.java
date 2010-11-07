@@ -52,6 +52,9 @@ public class PersistenceServices implements IPersistenceServices {
     public PersistenceServices() {
         emf = Persistence.createEntityManagerFactory("InmueblesLA-ejbPU");
         em = emf.createEntityManager();
+        inmuebles = new ArrayList<Inmueble>();
+        usuarios = new ArrayList<Usuario>();
+        transacciones = new ArrayList<Transacciones>();
     }
 
     // -----------------------------------------------
@@ -114,8 +117,8 @@ public class PersistenceServices implements IPersistenceServices {
         String pass = c.getPassword();
         String tipoUsuario = c.getTipoUsuario();
 
-        em.createQuery("INSERT INTO USUARIOS(nombre, apellido, cedula, email, logIn, tipoUsuario) " +
-                "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+email+"','"+logIn+"','"+pass+"','"+tipoUsuario+"')");
+        createQuery7("INSERT INTO USUARIOS(nombre, apellido, cedula, email, logIn, tipoUsuario) " +
+                "VALUES('"+nombre+"','"+apellido+"','"+cedula+"','"+email+"','"+logIn+"','"+pass+"','"+tipoUsuario+"')", c);
     }
 
     /**
@@ -129,10 +132,11 @@ public class PersistenceServices implements IPersistenceServices {
          String descripcion = nuevo.getDescripcion();
          String tipo = nuevo.getTipo();
          int idVendedor = nuevo.getIdvendedor();
+         Inmueble i = new Inmueble(referencia, nombre, tipo, tipo);
+         i.setIdvendedor(idVendedor);
 
-
-         em.createQuery("INSERT INTO INMUEBLE(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
-                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"','"+idVendedor+"')");
+         createQuery6("INSERT INTO INMUEBLE(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
+                    "VALUES('"+referencia+"','"+nombre+"','"+descripcion+"','"+tipo+"','"+idVendedor+"')", i);
     }
 
     /**
@@ -146,73 +150,151 @@ public class PersistenceServices implements IPersistenceServices {
         int idinmueble = nueva.getIdinmueble().getIdInmueble();
         int idtransaccion = nueva.getIdtransaccion();
 
-        em.createQuery("INSERT INTO TRANSACCION(estado, idcomprador, idinmueble, idtransaccion) " +
-                    "VALUES('"+estado+"','"+idcomprador+"','"+idinmueble+"','"+idtransaccion+"')");
-    }
+        Transacciones t = new Transacciones();
+        List<Usuario> l = createQuery2("", idcomprador);
+        Usuario u = l.get(0);
+        List<Inmueble> in = createQuery("", idinmueble);
+        Inmueble i = in.get(0);
+        t.setIdcomprador(u);
+        t.setEstado(estado);
+        t.setIdinmueble(i);
+        t.setIdtransaccion(idtransaccion);
 
+        createQuery5("INSERT INTO TRANSACCION(estado, idcomprador, idinmueble, idtransaccion) " +
+                    "VALUES('"+estado+"','"+idcomprador+"','"+idinmueble+"','"+idtransaccion+"')", t);
+    }
     /**
      * busca los inmuebles que tengan por id el del cliente c
      * @param c
      */
-    public List consultarInmueblesAsociadosClienteVendedor ( Usuario c )
-    {
+    public List consultarInmueblesAsociadosClienteVendedor ( Usuario c ){
         int id = c.getIdusuario();
         List temp = new ArrayList( );
-        String query = "Select K From INMUEBLE Where losInVendedor = '"+id+"' AS K";
+        String query = "Select K From INMUEBLE Where losInVendedor="+id+" AS K";
 
-        temp = em.createQuery(query).getResultList();
-        return temp;
+        return createQuery4(query, id);
     }
-
-        /**
+    /**
      * busca los inmuebles que tengan por id el del cliente c
      * @param c
      */
-    public List consultarInmueblesAsociadosClienteComprador ( Usuario c )
-    {
+    public List consultarInmueblesAsociadosClienteComprador ( Usuario c ){
         int id = c.getIdusuario();
         List temp = new ArrayList( );
-        String query = "Select K From INMUEBLE Where idComprador = '"+id+"' AS K";
-
-        temp = em.createQuery(query).getResultList();
-        return temp;
+        String query = "Select K From INMUEBLE Where idComprador="+id+" AS K";
+        return createQuery3(query, id);
     }
-
     /**
      * retorna todos los clientes
      * @param idCliente
      * @return
      */
-    public List darCliente ( int idCliente )
-    {
-        List temp = new ArrayList( );
-
-        String query = "Select K From USUARIOS Where idusuario = '"+idCliente+"' AS K";
-        temp = em.createQuery(query).getResultList();
-
-        return temp;
+    public List darCliente ( int idCliente ){
+        String query = "Select K From USUARIOS Where idusuario="+idCliente+" AS K";
+        return createQuery2(query, idCliente);
     }
-
     /**
      * Retorna los inmuebles dado un tipo
      */
-    public List darInmueblesPorTipo( int tipo )
-    {
-        List temp = new ArrayList( );
-
-        temp = em.createQuery("Select K From INMUEBLE Where TIPO="+tipo+" AS K").getResultList();
-        //temp.add(new Inmueble(1, "nom", "desc", "ntipo"));
-        //temp.add(new Inmueble(2, "nom", "desc", "ntipo"));
-        return temp;
+    public List<Inmueble> darInmueblesPorTipo( int tipo ){
+        return createQuery1("Select K From INMUEBLE Where TIPO="+tipo+" AS K", tipo);
     }
-
     /**
      * registra un inmueble a un comprador
      */
-    public void registrarInmuebleComprador(int logInComprador)
-    {
-         em.createQuery("INSERT INTO INMUEBLE(idComprador) " +
-                    "VALUES('"+logInComprador+"')");
+    public void registrarInmuebleComprador(int idcomprador, int idinmueble){
+         createQuery0("INSERT INTO INMUEBLE(idComprador) " +
+                    "VALUES('"+idcomprador+"')", idcomprador, idinmueble);
     }
+    private void createQuery7(String string, Usuario i) {
+        usuarios.add(i);
+    }
+    private void createQuery6(String string, Inmueble i) {
+        inmuebles.add(i);
+    }
+    private void createQuery5(String string, Transacciones t) {
+        transacciones.add(t);
+    }
+    public List<Inmueble> createQuery4 (String s, int idvendedor){
+        List temp = new ArrayList();
+        for (int i = 0; i < inmuebles.size(); i++)
+        {
+            Inmueble in = inmuebles.get(i);
+            if (in.getIdvendedor() == idvendedor)
+            {
+                temp.add(in);
+            }
+        }
+        return temp;
+    }
+    public List<Inmueble> createQuery3 (String s, int idcomprador){
+        List temp = new ArrayList();
+        for (int i = 0; i < inmuebles.size(); i++)
+        {
+            Inmueble in = inmuebles.get(i);
+            if (in.getIdcomprador() == idcomprador)
+            {
+                temp.add(in);
+            }
+        }
+        return temp;
+    }
+    public List<Usuario> createQuery2(String query, int idCliente) {
+        List<Usuario> temp = new ArrayList<Usuario>();
 
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario usuario = usuarios.get(i);
+            if (usuario.getIdusuario() == idCliente)
+            {
+                temp.add(usuario);
+                break;
+            }
+        }
+
+        return temp;
+    }
+    public List<Inmueble> createQuery1(String string, int tipo){
+        List<Inmueble> temp = new ArrayList<Inmueble>();
+
+        for (int i = 0; i < inmuebles.size(); i++) {
+            Inmueble inmueble = inmuebles.get(i);
+
+            if(inmueble.getTipo().equals(tipo+""))
+            {
+                temp.add(inmueble);
+            }
+        }
+
+        return temp;
+    }
+    public void createQuery0(String string, int idcomprador, int idinmueble){
+        for (int i = 0; i < inmuebles.size(); i++)
+        {
+            Inmueble temp = inmuebles.get(i);
+            if (temp.getIdcomprador() == -1 )
+            {
+                inmuebles.remove(temp);
+                temp.setIdcomprador(idcomprador);
+                inmuebles.add(temp);
+            }
+
+        }
+    }
+    public List<Inmueble> createQuery(String query, int idinmueble) {
+        List<Inmueble> temp = new ArrayList<Inmueble>();
+
+        for (int i = 0; i < inmuebles.size(); i++) {
+            Inmueble inmueble = inmuebles.get(i);
+            if (inmueble.getIdInmueble() == idinmueble)
+            {
+                temp.add(inmueble);
+                break;
+            }
+        }
+
+        return temp;
+    }
+    private List<Inmueble> inmuebles;
+    private List<Usuario> usuarios;
+    private List<Transacciones> transacciones;
 }
