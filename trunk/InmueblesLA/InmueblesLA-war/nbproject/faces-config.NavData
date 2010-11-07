@@ -2,11 +2,20 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="catalogo.jsp" x="88" y="182" zoom="false"/>
-        <Node id="page2.jsp" x="650" y="150" zoom="true"/>
+        <Node id="home2.jsp" x="650" y="300" zoom="true"/>
         <Node id="index.jsp" x="400" y="150" zoom="true"/>
-        <Node id="old_index.jsp" x="29" y="44" zoom="false"/>
+        <Node id="reporte.jsp" x="650" y="450" zoom="true"/>
+        <Node id="comprar.jsp" x="150" y="450" zoom="true"/>
+        <Node id="catalogo2.jsp" x="150" y="300" zoom="true"/>
         <Node id="index2.jsp" x="400" y="300" zoom="true"/>
+        <Node id="login_error.jsp" x="900" y="300" zoom="true"/>
+        <Node id="catalogo.jsp" x="88" y="182" zoom="false"/>
+        <Node id="test.jsp" x="400" y="450" zoom="true"/>
+        <Node id="home.jsp" x="150" y="600" zoom="true"/>
+        <Node id="validar_venta.jsp" x="650" y="150" zoom="true"/>
+        <Node id="login.jsp" x="150" y="150" zoom="true"/>
+        <Node id="registro.jsp" x="900" y="150" zoom="true"/>
+        <Node id="home3.jsp" x="1150" y="150" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>
