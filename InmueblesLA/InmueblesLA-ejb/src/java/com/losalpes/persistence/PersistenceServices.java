@@ -158,7 +158,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         int id = c.getIdusuario();
         List temp = new ArrayList( );
-        String query = "Select * From INMUEBLE Where losInVendedor = '"+id+"'";
+        String query = "Select K From INMUEBLE Where losInVendedor = '"+id+"' AS K";
 
         temp = em.createQuery(query).getResultList();
         return temp;
@@ -172,7 +172,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         int id = c.getIdusuario();
         List temp = new ArrayList( );
-        String query = "Select * From INMUEBLE Where idComprador = '"+id+"'";
+        String query = "Select K From INMUEBLE Where idComprador = '"+id+"' AS K";
 
         temp = em.createQuery(query).getResultList();
         return temp;
@@ -187,7 +187,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         List temp = new ArrayList( );
 
-        String query = "Select * From USUARIOS Where idusuario = '"+idCliente+"'";
+        String query = "Select K From USUARIOS Where idusuario = '"+idCliente+"' AS K";
         temp = em.createQuery(query).getResultList();
 
         return temp;
@@ -200,7 +200,7 @@ public class PersistenceServices implements IPersistenceServices {
     {
         List temp = new ArrayList( );
 
-        String query = "Select * From INMUEBLE Where tipo = "+tipo+"";
+        String query = "Select K From INMUEBLE Where tipo = '"+tipo+"' AS K";
         temp = em.createQuery(query).getResultList();
 
         return temp;
