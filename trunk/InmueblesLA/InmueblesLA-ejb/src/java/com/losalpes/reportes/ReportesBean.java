@@ -8,6 +8,7 @@ package com.losalpes.reportes;
 import com.losalpes.entities.Inmueble;
 import java.util.ArrayList;
 import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 
 /**
@@ -27,13 +28,14 @@ public class ReportesBean implements Reportes {
      * @param id - identificador del reporte
      * @return codigo HTML del reporte
      */
+    @RolesAllowed ({"administrador"})
     public Inmueble generarReporteInmueble(String id) {
 
         ReporteInmueble rep = CacheReporteInmueble.getReporte(id);
 
         return rep.getInmueble();
     }
-
+    @RolesAllowed ({"adminiistrador"})
     public ArrayList generarReporteParametro(String parametro){
         ArrayList inmuebles = new ArrayList();
         return inmuebles;
