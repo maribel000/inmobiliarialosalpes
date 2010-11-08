@@ -48,7 +48,9 @@
                         <h1 class="title">Gracias Administrador,</h1>
                         <br>
                         <div class="entry">
-                            Este es tu reporte ...
+                            Estas son todas la transacciones que han sido validadas:
+
+                            <jsp:include page="pages/trans_val.jsp" />
                         </div>
                     </div>
                 </div>
