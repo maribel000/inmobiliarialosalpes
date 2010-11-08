@@ -16,6 +16,8 @@ import com.losalpes.entities.Transacciones;
 import com.losalpes.entities.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,6 +30,7 @@ import javax.persistence.Persistence;
  * @author Daniel Palacios
  */
 @Stateless
+@DeclareRoles({"administrador", "vendedor", "cliente"})
 public class PersistenceServices implements IPersistenceServices {
 
     // -----------------------------------------------
@@ -123,6 +126,7 @@ public class PersistenceServices implements IPersistenceServices {
      * Guarda un nuevo IInmueble en la BD
      * @param nuevo
      */
+    @RolesAllowed ({"administrador"})
     public void persistirNuevoInmueble(Inmueble nuevo) {
         int referencia = nuevo.getidInmueble();
         String nombre = nuevo.getNombre();
@@ -140,6 +144,7 @@ public class PersistenceServices implements IPersistenceServices {
      * persiste una nueva transaccion
      * @param nueva
      */
+    @RolesAllowed ({"vendedor"})
     public void persistirNuevaTransaccion(Transacciones nueva) {
         String estado = nueva.getEstado();
         int idcomprador = nueva.getIdcomprador().getIdusuario();
@@ -164,6 +169,7 @@ public class PersistenceServices implements IPersistenceServices {
      * busca los inmuebles que tengan por id el del cliente c
      * @param c
      */
+    @RolesAllowed ({"administrador"})
     public List consultarInmueblesAsociadosClienteVendedor(Usuario c) {
         int id = c.getIdusuario();
         List temp = new ArrayList();
@@ -176,6 +182,7 @@ public class PersistenceServices implements IPersistenceServices {
      * busca los inmuebles que tengan por id el del cliente c
      * @param c
      */
+    @RolesAllowed ({"vendedor"})
     public List consultarInmueblesAsociadosClienteComprador(Usuario c) {
         int id = c.getIdusuario();
         List temp = new ArrayList();
@@ -188,6 +195,7 @@ public class PersistenceServices implements IPersistenceServices {
      * @param idCliente
      * @return
      */
+    @RolesAllowed ({"administrador", "cliente"})
     public List darCliente(int idCliente) {
         String query = "Select K From USUARIOS Where idusuario=" + idCliente + " AS K";
         return createQuery2(query, idCliente);
@@ -196,6 +204,7 @@ public class PersistenceServices implements IPersistenceServices {
     /**
      * Retorna los inmuebles dado un tipo
      */
+
     public List<Inmueble> darInmueblesPorTipo(int tipo) {
         return createQuery1("Select K From INMUEBLE Where TIPO=" + tipo + " AS K", tipo);
     }
@@ -203,6 +212,7 @@ public class PersistenceServices implements IPersistenceServices {
     /**
      * registra un inmueble a un comprador
      */
+    @RolesAllowed ({"vendedor"})
     public void registrarInmuebleComprador(int idcomprador, int idinmueble) {
         createQuery0("INSERT INTO INMUEBLE(idComprador) " +
                 "VALUES('" + idcomprador + "')", idcomprador, idinmueble);
