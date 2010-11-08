@@ -20,19 +20,21 @@
                     <div id="page">
                         <!--******************** START CONTENT ********************-->
                         <div id="content">
-                    <webuijsf:form id="form1">
-                        <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 214px; left: 192px; top: 192px; position: absolute; width: 650px; alignment: center">
-                            <webuijsf:tab actionExpression="#{catalogo.tab1_action}" id="tab1" text="Apartamentos">
-                                <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 650px; -rave-layout: grid"/>
-                            </webuijsf:tab>
-                            <webuijsf:tab actionExpression="#{catalogo.tab2_action}" id="tab2" text="Casas">
-                                <webuijsf:panelLayout id="layoutPanel2" style="height: 201px; position: relative; width: 650px; -rave-layout: grid"/>
-                            </webuijsf:tab>
-                        </webuijsf:tabSet>
-                    </webuijsf:form>
-
-
-                            <div class="right-sector" style="margin-top: 150px">
+                            <webuijsf:form id="form1">
+                                <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 214px; left: 192px; top: 192px; position: absolute; width: 645px;">
+                                    <webuijsf:tab actionExpression="#{catalogo.tab1_action}" id="tab1" text="Apartamentos">
+                                        Estos son los apartamentos que tenemos en nuestro catálogo: <BR/> <BR/>
+                                        <jsp:include page="pages/aptos_pub.jsp"/>
+                                        <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 645px; -rave-layout: grid"/>
+                                    </webuijsf:tab>
+                                    <webuijsf:tab actionExpression="#{catalogo.tab2_action}" id="tab2" text="Casas">
+                                        Estos son las casas que tenemos en nuestro catálogo: <BR/> <BR/>
+                                        <jsp:include page="pages/casas_pub.jsp"/>
+                                        <webuijsf:panelLayout id="layoutPanel2" style="height: 201px; position: relative; width: 645px; -rave-layout: grid"/>
+                                    </webuijsf:tab>
+                                </webuijsf:tabSet>
+                            </webuijsf:form>
+                            <div class="right-sector" style="margin-top: 150px; margin-left: 675px;">
                                 <div class="post">
                                     <h2 class="title">Pautas Publicitarias</h2>
                                     <div class="entry">

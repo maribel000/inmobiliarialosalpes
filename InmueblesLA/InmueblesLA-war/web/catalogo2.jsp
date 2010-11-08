@@ -24,6 +24,10 @@
                                 <webuijsf:tabSet id="tabSet1" selected="tab1" style="height: 214px; left: 192px; top: 192px; position: absolute; width: 650px; alignment: center">
                                     <webuijsf:tab actionExpression="#{catalogo.tab1_action}" id="tab1" text="Apartamentos">
                                         <webuijsf:panelLayout id="layoutPanel1" style="height: 201px; position: relative; width: 650px; -rave-layout: grid">
+                                        
+                                        <jsp:include page="test.jsp" />
+                                        
+
                                         </webuijsf:panelLayout>
                                     </webuijsf:tab>
                                     <webuijsf:tab actionExpression="#{catalogo.tab2_action}" id="tab2" text="Casas">

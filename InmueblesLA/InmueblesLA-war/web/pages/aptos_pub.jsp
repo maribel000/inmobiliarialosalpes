@@ -5,16 +5,14 @@
 --%>
 <%@ page import="com.losalpes.entities.*,com.losalpes.persistence.PersistenceServices,java.util.List, javax.naming.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <table border="0" width="300px">
     <thead>
         <tr>
-            <th>Nombre:&nbsp;</th>
-            <th>Descripcion: &nbsp;</th>
+            <th>Apartamento&nbsp;</th>
+            <th>Descripcion &nbsp;</th>
         </tr>
     </thead>
     <tbody>
-
         <%
         PersistenceServices p = new PersistenceServices();
         List<Inmueble> l = p.darInmueblesPorTipo(1);
@@ -26,15 +24,12 @@
             nombre = l.get(i).getNombre();
             desc = l.get(i).getDescripcion();
         %>
-
         <tr>
             <td><%= nombre%></td>
             <td><%= desc%></td>
         </tr>
-
         <%
         }
         %>
-
     </tbody>
 </table>

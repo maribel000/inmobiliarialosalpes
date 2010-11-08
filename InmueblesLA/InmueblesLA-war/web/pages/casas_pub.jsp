@@ -9,15 +9,15 @@
 <table border="0" width="300px">
     <thead>
         <tr>
-            <th>Nombre:&nbsp;</th>
-            <th>Descripcion: &nbsp;</th>
+            <th>Casa&nbsp;</th>
+            <th>Descripcion&nbsp;</th>
         </tr>
     </thead>
     <tbody>
 
         <%
         PersistenceServices p = new PersistenceServices();
-        List<Inmueble> l = p.darInmueblesPorTipo(1);
+        List<Inmueble> l = p.darInmueblesPorTipo(2);
 
         String nombre;
         String desc;
