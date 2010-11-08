@@ -35,7 +35,7 @@ public class ReportesBean implements Reportes {
 
         return rep.getInmueble();
     }
-    @RolesAllowed ({"adminiistrador"})
+    @RolesAllowed ({"administrador"})
     public ArrayList generarReporteParametro(String parametro){
         ArrayList inmuebles = new ArrayList();
         return inmuebles;
