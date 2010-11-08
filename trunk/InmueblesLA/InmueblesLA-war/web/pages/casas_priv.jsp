@@ -13,8 +13,7 @@
             <th>Descripción&nbsp;</th>
         </tr>
     </thead>
-    <tbody>
-
+    <tbody
         <%
         PersistenceServices p = new PersistenceServices();
         List<Inmueble> l = p.darInmueblesPorTipo(2);
@@ -28,14 +27,11 @@
             desc = l.get(i).getDescripcion();
             id = l.get(i).getIdInmueble();
         %>
-        <form action="../comprar.jsp" method="GET">
-            <input type="hidden" id="idimueble" value="<%= id%>"/>
         <tr>
             <td><%= nombre%></td>
             <td><%= desc%></td>
-            <td><input type="button" value="Comprar" name="boton_comprar" onclick="window.location='../comprar.jsp'"/></td>
+            <td><input type="button" value="Comprar" name="boton_comprar" onclick="window.location='../comprar.jsp?idinmueble=<%= id%>'"/></td>
         </tr>
-        </form>
         <%
         }
         %>
