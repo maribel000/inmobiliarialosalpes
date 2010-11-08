@@ -7,6 +7,7 @@ package com.losalpes.reportes;
 
 import com.losalpes.entities.Inmueble;
 import java.util.ArrayList;
+import javax.annotation.security.DeclareRoles;
 import javax.ejb.Stateless;
 
 /**
@@ -14,6 +15,7 @@ import javax.ejb.Stateless;
  * @author andres
  */
 @Stateless
+@DeclareRoles ({"administrador"})
 public class ReportesBean implements Reportes {
     
     /**
