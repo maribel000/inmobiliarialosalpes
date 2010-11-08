@@ -27,14 +27,13 @@
             desc = l.get(i).getDescripcion();
             id = l.get(i).getIdInmueble();
         %>
-        <form action="../comprar.jsp" method="GET">
-            <input type="hidden" id="idimueble" value="<%= id%>"/>
+        <for
         <tr>
             <td><%= nombre%></td>
             <td><%= desc%></td>
-            <td><input type="button" value="Comprar" name="boton_comprar" onclick="window.location='../comprar.jsp'"/></td>
+            <td><input type="button" value="Comprar" name="boton_comprar" onclick="window.location='../comprar.jsp?idinmueble=<%= id%>'"/></td>
+
         </tr>
-        </form>
         <%
         }
         %>
