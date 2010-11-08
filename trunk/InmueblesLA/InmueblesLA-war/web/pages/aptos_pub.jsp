@@ -9,7 +9,7 @@
     <thead>
         <tr>
             <th>Apartamento&nbsp;</th>
-            <th>Descripcion &nbsp;</th>
+            <th>Descripción &nbsp;</th>
         </tr>
     </thead>
     <tbody>

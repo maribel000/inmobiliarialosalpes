@@ -4,7 +4,7 @@
     Author     : andres
 --%>
 
-<%@ page import="com.losalpes.reportes.Reportes,com.losalpes.mundo.Inmueble, javax.naming.*"%>
+<%@ page import="com.losalpes.reportes.Reportes,com.losalpes.entities.*, javax.naming.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,7 +48,7 @@
                         <h1 class="title">Gracias por tu transacción,</h1>
                         <br>
                         <div class="entry">
-                           Uno de nuestros asesores te validará tu transacción.
+                           Uno de nuestros asesores te contactará para validar la transacción.
                         </div>
                     </div>
                 </div>
