@@ -42,6 +42,7 @@
             <!--******************** START CONTENT ********************-->
             <div id="content">
 
+                <%//TODO actually insert into transaccions %>
                 <!--******************** START CENTER ********************-->
                 <div class="left-sector">
                     <div class="post">
