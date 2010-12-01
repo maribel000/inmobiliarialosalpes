@@ -160,27 +160,6 @@ public class Inmueble implements Serializable
         this.nombre = nombre;
     }
 
- 
-
-    /**
-     * retorna la idInmueble del inmueble
-     * @return idInmueble
-     */
-    public int getidInmueble()
-    {
-        return idInmueble;
-    }
-
-    /**
-     * modifica la idInmueble del inmueble
-     * @param idInmueble
-     */
-    public void setidInmueble(int idInmueble)
-    {
-        this.idInmueble = idInmueble;
-    }
-
-
     /**
      * obtiene tipo inmueble
      * @return

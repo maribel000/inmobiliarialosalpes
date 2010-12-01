@@ -31,10 +31,10 @@ public class ReporteInmueble {
         idReporte = id;
         Inmueble buscado = inmobiliaria.buscarInmuebleReferencia(id);
         if(buscado != null) {
-            System.out.println(buscado.getidInmueble());
+            System.out.println(buscado.getIdInmueble());
             System.out.println(buscado.getNombre());
             System.out.println(buscado.getDescripcion());
-            inmueble.setidInmueble(buscado.getidInmueble());
+            inmueble.setIdInmueble(buscado.getIdInmueble());
             inmueble.setNombre(buscado.getNombre());
             inmueble.setDescripcion(buscado.getDescripcion());
         }

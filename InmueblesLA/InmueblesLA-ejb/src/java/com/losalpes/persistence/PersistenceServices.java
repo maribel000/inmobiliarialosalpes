@@ -128,7 +128,7 @@ public class PersistenceServices implements IPersistenceServices {
      */
     @RolesAllowed ({"administrador"})
     public void persistirNuevoInmueble(Inmueble nuevo) {
-        int referencia = nuevo.getidInmueble();
+        int referencia = nuevo.getIdInmueble();
         String nombre = nuevo.getNombre();
         String descripcion = nuevo.getDescripcion();
         String tipo = nuevo.getTipo();
@@ -343,7 +343,7 @@ public class PersistenceServices implements IPersistenceServices {
             } else {
                 inmueble.setTipo(2 + "");
             }
-            inmueble.setidInmueble(i);
+            inmueble.setIdInmueble(i);
 
             inmuebles.add(inmueble);
 
@@ -360,4 +360,106 @@ public class PersistenceServices implements IPersistenceServices {
             transacciones.add(t);
         }
     }
+
+
+    // -----------
+    // Exp 3
+    // -----------
+    /**
+     * Crea un nuevo inmueble
+     */
+    public boolean crearInmueble (String descripcion,int idInmueble,int idcomprador,Usuario iddueno,int idvendedor,String nombre,String tipo)
+    {
+        boolean registrado = false;
+        Inmueble nuevo = new Inmueble( );
+
+        if( !existeInmueble( idInmueble ))
+        {
+            nuevo.setDescripcion(descripcion);
+            nuevo.setIdInmueble(idInmueble);
+            nuevo.setIdcomprador(idcomprador);
+            nuevo.setIddueno(iddueno);
+            nuevo.setIdvendedor(idvendedor);
+            nuevo.setNombre(nombre);
+            nuevo.setTipo(tipo);
+        }
+        return registrado;
+    }
+
+        /**
+     * Crea un nuevo inmueble
+     */
+    public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,int idusuario,String logIn,String nombre,String password,String tipoUsuario)
+    {
+        boolean registrado = false;
+        Usuario nuevo = new Usuario();
+
+        if( !existeUsuarioID( idUsuario ) && !existeUsuarioLOGIN(logIn))
+        {
+            nuevo.setApellido(apellido);
+            nuevo.setCc(cc);
+            nuevo.setCorreoElectronico(correoElectronico);
+            nuevo.setDocumentoIdentificacion(documentoIdentificacion);
+            nuevo.setEmail(email);
+            nuevo.setIdusuario(idusuario);
+            nuevo.setLogIn(logIn);
+            nuevo.setNombre(nombre);
+            nuevo.setPassword(password);
+            nuevo.setTipoUsuario(tipoUsuario);
+        }
+        return registrado;
+    }
+
+    /**
+     * verifica si existe un inmueble
+     * @param idInmueble
+     * @return
+     */
+    private boolean existeInmueble(int idInmueble)
+    {
+        boolean si = false;
+        for (int i = 0; i < inmuebles.size() && !si; i++)
+        {
+            Inmueble temp = inmuebles.get(i);
+            if (temp.getIdInmueble() == idInmueble)
+            {
+                si = true;
+            }
+        }
+        return si;
+    }
+
+    /**
+     * verifica si existe un usuario
+     * @param idUsuario
+     * @return
+     */
+    private boolean existeUsuarioID(int idUsuario)
+    {
+        boolean si = false;
+        for (int i = 0; i < usuarios.size() && !si; i++)
+        {
+            Usuario temp = usuarios.get(i);
+            if (temp.getIdusuario() == idUsuario)
+            {
+                si = true;
+            }
+        }
+        return si;
+    }
+
+    private boolean existeUsuarioLOGIN(String logIn)
+    {
+        boolean si = false;
+        for (int i = 0; i < usuarios.size() && !si; i++)
+        {
+            Usuario temp = usuarios.get(i);
+            if (temp.getLogIn().equalsIgnoreCase(logIn))
+            {
+                si = true;
+            }
+        }
+        return si;
+    }
+
 }
