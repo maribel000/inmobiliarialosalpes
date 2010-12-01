@@ -386,6 +386,7 @@ public class PersistenceServices implements IPersistenceServices {
         nuevo.setNombre(nombre);
         nuevo.setTipo(tipo);
         registrado = true;
+        id_inmueble++;
         return registrado;
     }
 
@@ -410,6 +411,7 @@ public class PersistenceServices implements IPersistenceServices {
             nuevo.setPassword(password);
             nuevo.setTipoUsuario(tipoUsuario);
             registrado = true;
+            id_usuario++;
         }
         return registrado;
     }
