@@ -387,7 +387,7 @@ public class PersistenceServices implements IPersistenceServices {
     }
 
         /**
-     * Crea un nuevo inmueble
+     * Crea un nuevo usuario
      */
     public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,int idusuario,String logIn,String nombre,String password,String tipoUsuario)
     {
