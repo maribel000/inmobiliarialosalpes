@@ -113,7 +113,7 @@ public interface IPersistenceServices {
     /**
      * Crea un nuevo inmueble
      */
-    public boolean crearInmueble (String descripcion,int idInmueble,int idcomprador,Usuario iddueno,int idvendedor,String nombre,String tipo);
+    public boolean crearInmueble (String descripcion,int idInmueble, int iddueno,int idvendedor,String nombre,String tipo);
 
         /**
      * Crea un nuevo usuario

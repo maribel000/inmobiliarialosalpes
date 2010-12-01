@@ -368,7 +368,7 @@ public class PersistenceServices implements IPersistenceServices {
     /**
      * Crea un nuevo inmueble
      */
-    public boolean crearInmueble (String descripcion,int idInmueble,int idcomprador,Usuario iddueno,int idvendedor,String nombre,String tipo)
+    public boolean crearInmueble (String descripcion,int idInmueble, int iddueno,int idvendedor,String nombre,String tipo)
     {
         boolean registrado = false;
         Inmueble nuevo = new Inmueble( );
@@ -377,8 +377,8 @@ public class PersistenceServices implements IPersistenceServices {
         {
             nuevo.setDescripcion(descripcion);
             nuevo.setIdInmueble(idInmueble);
-            nuevo.setIdcomprador(idcomprador);
-            nuevo.setIddueno(iddueno);
+            Usuario usuario = buscarDuenio( iddueno );
+            nuevo.setIddueno(usuario);
             nuevo.setIdvendedor(idvendedor);
             nuevo.setNombre(nombre);
             nuevo.setTipo(tipo);
@@ -408,6 +408,21 @@ public class PersistenceServices implements IPersistenceServices {
             nuevo.setTipoUsuario(tipoUsuario);
         }
         return registrado;
+    }
+
+    private Usuario buscarDuenio(int iddueno)
+    {
+        Usuario usuario = null;
+        for (int i = 0; i < usuarios.size() && usuario == null; i++)
+        {
+            Usuario temp = usuarios.get(i);
+            if ( iddueno == temp.getIdusuario() )
+            {
+                usuario = temp;
+            }
+
+        }
+        return usuario;
     }
 
     /**
@@ -461,5 +476,4 @@ public class PersistenceServices implements IPersistenceServices {
         }
         return si;
     }
-
 }
