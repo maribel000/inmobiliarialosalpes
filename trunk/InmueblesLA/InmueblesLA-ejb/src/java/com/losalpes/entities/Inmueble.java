@@ -57,7 +57,7 @@ public class Inmueble implements Serializable
      * tipo del inmueble
      */
     @Column
-    private String tipo;
+    private int tipo;
 
     /**
      * logIn vendedor
@@ -105,7 +105,7 @@ public class Inmueble implements Serializable
      * @param desc
      * @param ntipo
      */
-    public Inmueble(int ref, String nom, String desc, String ntipo )
+    public Inmueble(int ref, String nom, String desc, int ntipo )
     {
         idInmueble = ref;
         nombre = nom;
@@ -164,7 +164,7 @@ public class Inmueble implements Serializable
      * obtiene tipo inmueble
      * @return
      */
-    public String getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
@@ -172,7 +172,7 @@ public class Inmueble implements Serializable
      * retorna tipo inmueble
      * @param tipo
      */
-    public void setTipo(String tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 

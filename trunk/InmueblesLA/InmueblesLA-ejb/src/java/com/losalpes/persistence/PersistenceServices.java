@@ -32,6 +32,17 @@ import javax.persistence.Persistence;
 @Stateless
 @DeclareRoles({"administrador", "vendedor", "cliente"})
 public class PersistenceServices implements IPersistenceServices {
+    // -----------------------------------------------
+    // Constantes
+    // -----------------------------------------------
+    /**
+     * constante para un apartamento
+     */
+    public final static int APARTAMENTO = 1;
+    /**
+     * constante para una casa
+     */
+    public final static int CASA = 2;
 
     // -----------------------------------------------
     // Atributos
@@ -131,9 +142,9 @@ public class PersistenceServices implements IPersistenceServices {
         int referencia = nuevo.getIdInmueble();
         String nombre = nuevo.getNombre();
         String descripcion = nuevo.getDescripcion();
-        String tipo = nuevo.getTipo();
+        int tipo = nuevo.getTipo();
         int idVendedor = nuevo.getIdvendedor();
-        Inmueble i = new Inmueble(referencia, nombre, tipo, tipo);
+        Inmueble i = new Inmueble(referencia, nombre, "", tipo);
         i.setIdvendedor(idVendedor);
 
         createQuery6("INSERT INTO INMUEBLE(idinmueble, nombre, descripcion, tipo, logInVendedor) " +
@@ -272,7 +283,7 @@ public class PersistenceServices implements IPersistenceServices {
         for (int i = 0; i < inmuebles.size(); i++) {
             Inmueble inmueble = inmuebles.get(i);
 
-            if (inmueble.getTipo().equals(tipo + "")) {
+            if (inmueble.getTipo() == tipo) {
                 temp.add(inmueble);
             }
         }
@@ -341,9 +352,9 @@ public class PersistenceServices implements IPersistenceServices {
             inmueble.setIdvendedor(i);
             inmueble.setNombre("inmueble nombre");
             if (i % 2 == 0) {
-                inmueble.setTipo(1 + "");
+                inmueble.setTipo(APARTAMENTO );
             } else {
-                inmueble.setTipo(2 + "");
+                inmueble.setTipo(CASA);
             }
             inmueble.setIdInmueble(i);
 
@@ -374,7 +385,7 @@ public class PersistenceServices implements IPersistenceServices {
     /**
      * Crea un nuevo inmueble
      */
-    public boolean crearInmueble (String descripcion,int iddueno,int idvendedor,String nombre,String tipo)
+    public boolean crearInmueble (String descripcion,int iddueno,int idvendedor,String nombre,int tipo)
     {
         boolean registrado = false;
         Inmueble nuevo = new Inmueble( );
