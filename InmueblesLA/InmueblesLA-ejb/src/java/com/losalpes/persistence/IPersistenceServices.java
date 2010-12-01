@@ -119,7 +119,7 @@ public interface IPersistenceServices {
      * @param tipo
      * @return
      */
-    public boolean crearInmueble (String descripcion,int iddueno,int idvendedor,String nombre,String tipo);
+    public boolean crearInmueble (String descripcion,int iddueno,int idvendedor,String nombre,int tipo);
 
     /**
      * crea un nuevo usuario
