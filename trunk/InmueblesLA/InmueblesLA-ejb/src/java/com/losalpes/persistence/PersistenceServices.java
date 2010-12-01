@@ -382,6 +382,7 @@ public class PersistenceServices implements IPersistenceServices {
             nuevo.setIdvendedor(idvendedor);
             nuevo.setNombre(nombre);
             nuevo.setTipo(tipo);
+            registrado = true;
         }
         return registrado;
     }
@@ -406,6 +407,7 @@ public class PersistenceServices implements IPersistenceServices {
             nuevo.setNombre(nombre);
             nuevo.setPassword(password);
             nuevo.setTipoUsuario(tipoUsuario);
+            registrado = true;
         }
         return registrado;
     }
