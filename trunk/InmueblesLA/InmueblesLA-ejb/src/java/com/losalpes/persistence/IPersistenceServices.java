@@ -106,4 +106,18 @@ public interface IPersistenceServices {
     public List<Inmueble> createQuery(String query, int idinmueble);
 
     public void llenardatos(int a);
+
+    // -----------
+    // Exp 3
+    // -----------
+    /**
+     * Crea un nuevo inmueble
+     */
+    public boolean crearInmueble (String descripcion,int idInmueble,int idcomprador,Usuario iddueno,int idvendedor,String nombre,String tipo);
+
+        /**
+     * Crea un nuevo usuario
+     */
+    public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,int idusuario,String logIn,String nombre,String password,String tipoUsuario);
+
 }
