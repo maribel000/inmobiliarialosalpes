@@ -393,7 +393,7 @@ public class PersistenceServices implements IPersistenceServices {
     /**
      * Crea un nuevo usuario
      */
-    public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,String logIn,String nombre,String password,String tipoUsuario)
+    public boolean crearUsuario (String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,String logIn,String nombre,String password,String tipoUsuario)
     {
         boolean registrado = false;
         Usuario nuevo = new Usuario();
