@@ -111,13 +111,30 @@ public interface IPersistenceServices {
     // Exp 3
     // -----------
     /**
-     * Crea un nuevo inmueble
+     * crea un inmueble nuevo
+     * @param descripcion
+     * @param iddueno
+     * @param idvendedor
+     * @param nombre
+     * @param tipo
+     * @return
      */
-    public boolean crearInmueble (String descripcion,int idInmueble, int iddueno,int idvendedor,String nombre,String tipo);
+    public boolean crearInmueble (String descripcion,int iddueno,int idvendedor,String nombre,String tipo);
 
-        /**
-     * Crea un nuevo usuario
+    /**
+     * crea un nuevo usuario
+     * @param idUsuario
+     * @param apellido
+     * @param cc
+     * @param correoElectronico
+     * @param documentoIdentificacion
+     * @param email
+     * @param logIn
+     * @param nombre
+     * @param password
+     * @param tipoUsuario
+     * @return
      */
-    public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,int idusuario,String logIn,String nombre,String password,String tipoUsuario);
+    public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,String logIn,String nombre,String password,String tipoUsuario);
 
 }

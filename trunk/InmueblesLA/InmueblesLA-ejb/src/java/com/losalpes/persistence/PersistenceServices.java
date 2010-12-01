@@ -309,6 +309,8 @@ public class PersistenceServices implements IPersistenceServices {
     private List<Inmueble> inmuebles;
     private List<Usuario> usuarios;
     private List<Transacciones> transacciones;
+    private int id_inmueble;
+    private int id_usuario;
 
     public void llenardatos(int a) {
         for (int i = 0; i < a; i++) {
@@ -358,7 +360,11 @@ public class PersistenceServices implements IPersistenceServices {
             t.setIdtransaccion(i);
 
             transacciones.add(t);
+            id_inmueble = i;
+            id_usuario = i;
         }
+        id_inmueble++;
+        id_usuario++;
     }
 
 
@@ -368,41 +374,37 @@ public class PersistenceServices implements IPersistenceServices {
     /**
      * Crea un nuevo inmueble
      */
-    public boolean crearInmueble (String descripcion,int idInmueble, int iddueno,int idvendedor,String nombre,String tipo)
+    public boolean crearInmueble (String descripcion,int iddueno,int idvendedor,String nombre,String tipo)
     {
         boolean registrado = false;
         Inmueble nuevo = new Inmueble( );
-
-        if( !existeInmueble( idInmueble ))
-        {
-            nuevo.setDescripcion(descripcion);
-            nuevo.setIdInmueble(idInmueble);
-            Usuario usuario = buscarDuenio( iddueno );
-            nuevo.setIddueno(usuario);
-            nuevo.setIdvendedor(idvendedor);
-            nuevo.setNombre(nombre);
-            nuevo.setTipo(tipo);
-            registrado = true;
-        }
+        nuevo.setDescripcion(descripcion);
+        nuevo.setIdInmueble(id_inmueble);
+        Usuario usuario = buscarDuenio( iddueno );
+        nuevo.setIddueno(usuario);
+        nuevo.setIdvendedor(idvendedor);
+        nuevo.setNombre(nombre);
+        nuevo.setTipo(tipo);
+        registrado = true;
         return registrado;
     }
 
-        /**
+    /**
      * Crea un nuevo usuario
      */
-    public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,int idusuario,String logIn,String nombre,String password,String tipoUsuario)
+    public boolean crearUsuario (int idUsuario,String apellido,String cc,String correoElectronico,String documentoIdentificacion,String email,String logIn,String nombre,String password,String tipoUsuario)
     {
         boolean registrado = false;
         Usuario nuevo = new Usuario();
 
-        if( !existeUsuarioID( idUsuario ) && !existeUsuarioLOGIN(logIn))
+        if( !existeUsuarioLOGIN(logIn))
         {
             nuevo.setApellido(apellido);
             nuevo.setCc(cc);
             nuevo.setCorreoElectronico(correoElectronico);
             nuevo.setDocumentoIdentificacion(documentoIdentificacion);
             nuevo.setEmail(email);
-            nuevo.setIdusuario(idusuario);
+            nuevo.setIdusuario(id_usuario);
             nuevo.setLogIn(logIn);
             nuevo.setNombre(nombre);
             nuevo.setPassword(password);
