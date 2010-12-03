@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="CrearInmuebleService" targetNamespace="http://webservices.losalpes.com/" xmlns:tns="http://webservices.losalpes.com/"
+ >
+    <message name="crearInmueble"/>
+    <message name="crearInmuebleResponse"/>
+    <message name="crearUsuario"/>
+    <message name="crearUsuarioResponse"/>
+    <portType name="CrearInmueble">
+        <operation name="crearInmueble">
+            <input message="tns:crearInmueble"/>
+            <output message="tns:crearInmuebleResponse"/>
+        </operation>
+        <operation name="crearUsuario">
+            <input message="tns:crearUsuario"/>
+            <output message="tns:crearUsuarioResponse"/>
+        </operation>
+    </portType>
+    <binding name="CrearInmueblePortBinding" type="tns:CrearInmueble">
+        <operation name="crearInmueble">
+            <input/>
+            <output/>
+        </operation>
+        <operation name="crearUsuario">
+            <input/>
+            <output/>
+        </operation>
+    </binding>
+    <service name="CrearInmuebleService">
+        <port name="CrearInmueblePort" binding="tns:CrearInmueblePortBinding"/>
+    </service>
+</definitions>
