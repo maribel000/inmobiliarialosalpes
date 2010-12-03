@@ -10,7 +10,7 @@
         <tr>
             <th>Apartamento&nbsp;</th>
             <th>Descripción &nbsp;</th>
-            <th>Comprar</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +32,6 @@
             <td><%= nombre%></td>
             <td><%= desc%></td>
             <td><input type="button" value="Comprar" name="boton_comprar" onclick="window.location='../comprar.jsp?idinmueble=<%= id%>'"/></td>
-
         </tr>
         <%
         }
