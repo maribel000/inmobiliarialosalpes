@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webservices.losalpes.com/" xmlns:tns="http://webservices.losalpes.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="crearInmueble" type="tns:crearInmueble"/>
+
+  <xs:element name="crearInmuebleResponse" type="tns:crearInmuebleResponse"/>
+
+  <xs:element name="crearUsuario" type="tns:crearUsuario"/>
+
+  <xs:element name="crearUsuarioResponse" type="tns:crearUsuarioResponse"/>
+
+  <xs:complexType name="crearInmueble">
+    <xs:sequence>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+      <xs:element name="iddueno" type="xs:int"/>
+      <xs:element name="idvendedor" type="xs:int"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipo" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearInmuebleResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearUsuario">
+    <xs:sequence>
+      <xs:element name="apellido" type="xs:string" minOccurs="0"/>
+      <xs:element name="cc" type="xs:string" minOccurs="0"/>
+      <xs:element name="correoElectronico" type="xs:string" minOccurs="0"/>
+      <xs:element name="documentoIdentificacion" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="logIn" type="xs:string" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipoUsuario" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="crearUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
