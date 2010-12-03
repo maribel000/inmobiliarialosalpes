@@ -254,7 +254,7 @@ public class P
     // ---------
     // Main
     // ---------
-
+/*
     public static void main( String[] args )
     {
         P p = new P( );
@@ -271,5 +271,5 @@ public class P
         // {
         // e.printStackTrace( );
         // }
-    }
+    }*/
 }
