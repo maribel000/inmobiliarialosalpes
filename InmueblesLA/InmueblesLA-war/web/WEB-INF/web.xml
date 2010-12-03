@@ -200,7 +200,7 @@
         <web-resource-collection>
             <web-resource-name>Restriccion catalogo2</web-resource-name>
             <description/>
-            <url-pattern>/catalogo2.jsp</url-pattern>
+            <url-pattern>/faces/catalogo2.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
             <http-method>HEAD</http-method>
