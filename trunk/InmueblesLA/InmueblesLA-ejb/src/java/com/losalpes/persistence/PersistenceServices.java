@@ -15,8 +15,11 @@ import com.losalpes.entities.Inmueble;
 import com.losalpes.entities.Transacciones;
 import com.losalpes.entities.Usuario;
 import com.losalpes.reportes.P;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
@@ -226,14 +229,29 @@ public class PersistenceServices implements IPersistenceServices {
 
     public void createQuery7(String string, Usuario i) {
         usuarios.add(i);
+                try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void createQuery6(String string, Inmueble i) {
         inmuebles.add(i);
+                try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void createQuery5(String string, Transacciones t) {
         transacciones.add(t);
+                try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public List<Inmueble> createQuery4(String s, int idvendedor) {
@@ -243,6 +261,11 @@ public class PersistenceServices implements IPersistenceServices {
             if (in.getIdvendedor() == idvendedor) {
                 temp.add(in);
             }
+        }
+                try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
         }
         return temp;
     }
@@ -254,6 +277,11 @@ public class PersistenceServices implements IPersistenceServices {
             if (in.getIdcomprador() == idcomprador) {
                 temp.add(in);
             }
+        }
+                try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
         }
         return temp;
     }
@@ -268,7 +296,11 @@ public class PersistenceServices implements IPersistenceServices {
                 break;
             }
         }
-
+        try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
         return temp;
     }
 
@@ -282,7 +314,11 @@ public class PersistenceServices implements IPersistenceServices {
                 temp.add(inmueble);
             }
         }
-
+        try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
         return temp;
     }
 
@@ -295,6 +331,10 @@ public class PersistenceServices implements IPersistenceServices {
                 inmuebles.add(temp);
             }
 
+        }        try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -308,7 +348,11 @@ public class PersistenceServices implements IPersistenceServices {
                 break;
             }
         }
-
+        try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
         return temp;
     }
 
@@ -395,6 +439,11 @@ public class PersistenceServices implements IPersistenceServices {
         registrado = true;
         inmuebles.add(nuevo);
         id_inmueble++;
+                try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
         return registrado;
     }
 
@@ -421,6 +470,11 @@ public class PersistenceServices implements IPersistenceServices {
             usuarios.add(nuevo);
             registrado = true;
             id_usuario++;
+        }
+                try {
+            p.generarReporte();
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
         }
         return registrado;
     }
