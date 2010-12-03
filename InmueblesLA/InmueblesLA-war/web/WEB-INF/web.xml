@@ -145,7 +145,12 @@
             <url-pattern>/home3.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
-        </web-resource-collection>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>DELETE</http-method>
+            </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>administrador</role-name>
@@ -159,7 +164,12 @@
             <url-pattern>/validar_venta.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
-        </web-resource-collection>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>DELETE</http-method>
+            </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>vendedor</role-name>
@@ -173,7 +183,12 @@
             <url-pattern>/home2.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
-        </web-resource-collection>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>DELETE</http-method>
+            </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>vendedor</role-name>
@@ -187,7 +202,12 @@
             <url-pattern>/home.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
-        </web-resource-collection>
+            <http-method>HEAD</http-method>
+            <http-method>PUT</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>DELETE</http-method>
+            </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>administrador</role-name>
