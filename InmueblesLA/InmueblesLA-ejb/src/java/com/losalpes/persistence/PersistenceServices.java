@@ -14,6 +14,7 @@ package com.losalpes.persistence;
 import com.losalpes.entities.Inmueble;
 import com.losalpes.entities.Transacciones;
 import com.losalpes.entities.Usuario;
+import com.losalpes.reportes.P;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.security.DeclareRoles;
@@ -67,7 +68,7 @@ public class PersistenceServices implements IPersistenceServices {
         inmuebles = new ArrayList<Inmueble>();
         usuarios = new ArrayList<Usuario>();
         transacciones = new ArrayList<Transacciones>();
-
+        p = new P(this);
         llenardatos(32);
     }
 
@@ -212,13 +213,7 @@ public class PersistenceServices implements IPersistenceServices {
         return createQuery2(query, idCliente);
     }
 
-    /**
-     * Retorna los inmuebles dado un tipo
-     */
 
-    public List<Inmueble> darInmueblesPorTipo(int tipo) {
-        return createQuery1("Select K From INMUEBLE Where TIPO=" + tipo + " AS K", tipo);
-    }
 
     /**
      * registra un inmueble a un comprador
@@ -316,12 +311,13 @@ public class PersistenceServices implements IPersistenceServices {
 
         return temp;
     }
-    
-    private List<Inmueble> inmuebles;
-    private List<Usuario> usuarios;
+
     private List<Transacciones> transacciones;
     private int id_inmueble;
     private int id_usuario;
+    private List<Inmueble> inmuebles;
+    private List<Usuario> usuarios;
+    private P p;
 
     public void llenardatos(int a) {
         for (int i = 0; i < a; i++) {
@@ -495,4 +491,48 @@ public class PersistenceServices implements IPersistenceServices {
         }
         return si;
     }
+
+        /**
+     * Retorna los inmuebles dado un tipo
+     */
+
+    public List<Inmueble> darInmueblesPorTipo(int tipo) {
+        return createQuery1("Select K From INMUEBLE Where TIPO=" + tipo + " AS K", tipo);
+    }
+
+    public int getId_inmueble() {
+        return id_inmueble;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setIdusuario(int id)
+    {
+        id_usuario = id;
+    }
+
+    public void setIdinmueble(int id)
+    {
+        id_inmueble = id;
+    }
+
+    public List<Inmueble> getInmuebles() {
+        return inmuebles;
+    }
+
+    public void setInmuebles(List<Inmueble> inmuebles) {
+        this.inmuebles = inmuebles;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+    
+
 }
